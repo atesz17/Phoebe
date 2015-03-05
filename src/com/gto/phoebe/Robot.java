@@ -7,14 +7,14 @@ import java.awt.*;
  */
 public abstract class Robot extends Actor {
 
-    private boolean rotationEnabled;
+    private boolean speedChangeEnabled;
     private int speed;
     private Point direction;
     private double totalDistanceTraveled;
 
     public Robot()  {
         super();
-        rotationEnabled = true;
+        speedChangeEnabled = true;
         speed = 0;
         direction = new Point(0, 0);
         totalDistanceTraveled = 0.0;
@@ -22,7 +22,7 @@ public abstract class Robot extends Actor {
 
     public Robot(Point position, int size)  {
         super(position, size);
-        rotationEnabled = true;
+        speedChangeEnabled = true;
         speed = 0;
         direction = new Point(0, 0);
         totalDistanceTraveled = 0.0;
@@ -33,12 +33,12 @@ public abstract class Robot extends Actor {
         setPosition(position);
     }
 
-    public boolean getRotationEnabled()    {
-        return rotationEnabled;
+    public boolean getSpeedChangeEnabled()    {
+        return speedChangeEnabled;
     }
 
-    public void setRotationEnabled(boolean enabled) {
-        rotationEnabled = enabled;
+    public void setSpeedChangeEnabled(boolean enabled) {
+        speedChangeEnabled = enabled;
     }
 
     public int getSpeed()   {
