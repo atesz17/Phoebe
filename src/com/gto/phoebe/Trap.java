@@ -1,9 +1,19 @@
 package com.gto.phoebe;
 
+import java.awt.*;
+
 /**
  * Created by atesz17 on 3/5/2015.
  */
-public interface Trap {
+public abstract class Trap extends Actor {
 
-    public void activateEffectOn(Robot robot);
+    public Trap() {
+        super();
+    }
+
+    public Trap(Point position, int size)   {
+        super(position, size);
+    }
+
+    public abstract void activateEffectOn(Robot robot);
 }

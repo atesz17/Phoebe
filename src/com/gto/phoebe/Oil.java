@@ -1,12 +1,22 @@
 package com.gto.phoebe;
 
+import java.awt.*;
+
 /**
  * Created by atesz17 on 3/5/2015.
  */
-public class Oil implements Trap {
+public class Oil extends Trap {
+
+    public Oil()    {
+        super();
+    }
+
+    public Oil(Point position, int size)    {
+        super(position, size);
+    }
 
     @Override
     public void activateEffectOn(Robot robot) {
-        robot.setRotationEnabled(false);
+        robot.setSpeedChangeEnabled(false);
     }
 }

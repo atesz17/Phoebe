@@ -5,12 +5,13 @@ import java.awt.*;
 /**
  * Created by atesz17 on 3/5/2015.
  */
-public abstract class Robot extends Actor {
+public class Robot extends Actor {
 
     private boolean speedChangeEnabled;
     private int speed;
     private Point direction;
     private double totalDistanceTraveled;
+    private TrapInventory trapInventory;
 
     public Robot()  {
         super();
@@ -18,6 +19,7 @@ public abstract class Robot extends Actor {
         speed = 0;
         direction = new Point(0, 0);
         totalDistanceTraveled = 0.0;
+        trapInventory = new TrapInventory();
     }
 
     public Robot(Point position, int size)  {
@@ -26,11 +28,24 @@ public abstract class Robot extends Actor {
         speed = 0;
         direction = new Point(0, 0);
         totalDistanceTraveled = 0.0;
+        trapInventory = new TrapInventory();
     }
 
     public void jump(Point position)    {
         totalDistanceTraveled += position.distance(getPosition());
         setPosition(position);
+    }
+
+    public Oil dropOil()    {
+        return trapInventory.getOil();
+    }
+
+    public Glue dropGlue()  {
+        return trapInventory.getGlue();
+    }
+
+    public void reloadTraps()   {
+        trapInventory.reloadTraps();
     }
 
     public boolean getSpeedChangeEnabled()    {
