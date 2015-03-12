@@ -12,6 +12,7 @@ public class Robot extends Actor {
     private Point direction;
     private double totalDistanceTraveled;
     private TrapInventory trapInventory;
+    private boolean isDead;
 
     public Robot()  {
         super();
@@ -20,6 +21,7 @@ public class Robot extends Actor {
         direction = new Point(0, 0);
         totalDistanceTraveled = 0.0;
         trapInventory = new TrapInventory();
+        isDead = false;
     }
 
     public Robot(Point position, int size)  {
@@ -29,11 +31,22 @@ public class Robot extends Actor {
         direction = new Point(0, 0);
         totalDistanceTraveled = 0.0;
         trapInventory = new TrapInventory();
+        isDead = false;
     }
 
     public void jump(Point position)    {
         totalDistanceTraveled += position.distance(getPosition());
         setPosition(position);
+    }
+
+    public void die()   {
+        totalDistanceTraveled = 0.0;
+        isDead = true;
+    }
+
+    @Override
+    public void activateEffectOn(Robot robot)   {
+
     }
 
     public Oil dropOil()    {

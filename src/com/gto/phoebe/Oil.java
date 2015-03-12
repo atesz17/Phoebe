@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Created by atesz17 on 3/5/2015.
  */
-public class Oil extends Trap {
+public class Oil extends Actor {
 
     public Oil()    {
         super();

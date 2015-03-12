@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Created by atesz17 on 3/5/2015.
  */
-public class Glue extends Trap {
+public class Glue extends Actor {
 
     public Glue()    {
         super();

@@ -20,8 +20,11 @@ public abstract class Actor {
         this.size = size;
     }
 
+    public abstract void activateEffectOn(Robot robot);
+
+
     public Point getPosition()  {
-        return position;
+        return this.position;
     }
 
     public void setPosition(Point position) {
