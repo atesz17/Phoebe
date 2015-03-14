@@ -6,7 +6,7 @@ public class Robot extends Actor {
 
     private boolean speedChangeEnabled = true;
     private int speed = 0;
-    private Point direction = new Point(0, 0);
+    private Point direction;
     private double totalDistanceTraveled = 0D;
     private TrapInventory trapInventory = new TrapInventory();
     private boolean isDead = false;
@@ -17,11 +17,39 @@ public class Robot extends Actor {
 
     public Robot(Point position, int size)  {
         super(position, size);
+        setDirection(new Point(position.x, position.y + 1));
     }
 
-    public void jump(Point position)    {
-        totalDistanceTraveled += position.distance(getPosition());
-        setPosition(position);
+    public void jump() {
+        InputHandler input = InputHandler.getFromConsole(this);
+        jump(input);
+    }
+
+    public void jump(InputHandler input) {
+        Point newPosition = calculatePosition(input);
+        speed += input.speedChange;
+        direction = new Point((newPosition.x - getPosition().x) + newPosition.x, (newPosition.y - getPosition().y) + newPosition.y);
+
+        totalDistanceTraveled += newPosition.distance(getPosition());
+        setPosition(newPosition);
+        speedChangeEnabled = true;
+    }
+
+    private Point calculatePosition(InputHandler input) {
+        int newSpeed = speed + input.speedChange;
+        double newAngle = getAngle() + input.angleChange;
+
+        int newX = (int) Math.round(newSpeed * Math.cos(newAngle));
+        int newY = (int) Math.round(newSpeed * Math.sin(newAngle));
+
+        return new Point(getPosition().x + newX, getPosition().y + newY);
+    }
+
+    private double getAngle() {
+        int a = Math.abs(getDirection().y - getPosition().y);
+        int b = Math.abs(getDirection().x - getPosition().x);
+        double c = Math.sqrt(a * a + b * b);
+        return Math.asin(a / c);
     }
 
     public void die()   {
@@ -72,5 +100,9 @@ public class Robot extends Actor {
 
     public double getTotalDistanceTraveled()    {
         return totalDistanceTraveled;
+    }
+
+    public boolean isDead() {
+        return isDead;
     }
 }

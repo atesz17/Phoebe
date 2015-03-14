@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class Level {
 
@@ -16,8 +17,8 @@ public class Level {
     public Level(int remainingTurns, int width, int height, Point startLinePointOne, Point startLinePointTwo) {
         this.remainingTurns = remainingTurns;
         startLine = new Line2D.Double(startLinePointOne.getX(), startLinePointOne.getY(), startLinePointTwo.getX(), startLinePointTwo.getY());
-        robots.add(new Robot());
-        robots.add(new Robot());
+        robots.add(new Robot(new Point(100, 100), 1));
+        robots.add(new Robot(new Point(100, 110), 1));
         initMap(width, height);
     }
 
@@ -34,16 +35,44 @@ public class Level {
     }
 
     public void gameCycle() {
+        while (remainingTurns > 0) {
+            if (!isEverybodyAlive()) {
+                break;
+            }
 
+            for (Robot robot : robots) {
+                turn(robot);
+            }
+        }
+    }
+
+    private void turn(Robot robot) {
+        Point previousPosition = robot.getPosition();
+        robot.jump();
+
+        if (checkRobotHasCrossedStartLine(previousPosition, robot)) {
+            robot.reloadTraps();
+        }
+        checkCollisionOnRobot(robot);
+    }
+
+    private boolean isEverybodyAlive() {
+        for (Robot robot : robots) {
+            if (robot.isDead()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void checkCollisionOnRobot(Robot robot) {
-        checkRobotHasCrossedStartLine(robot);
-        for (Actor field : fields) {
+        ListIterator<Actor> iter = fields.listIterator();
+        while (iter.hasNext()) {
+            Actor field = iter.next();
             if (checkActorInRange(field, robot)) {
                 field.activateEffectOn(robot);
-                addActorToLevel(new NormalField(field.getPosition(), 1));
-                removeActorFromLevel(field);
+                iter.remove();
+                iter.add(new NormalField(field.getPosition(), 1));
             }
         }
     }
@@ -64,16 +93,9 @@ public class Level {
         fields.remove(actor);
     }
 
-    public int getRemainingTurns() {
-        return remainingTurns;
-    }
-
-    public void setRemainingTurns(int remainingTurns) {
-        this.remainingTurns = remainingTurns;
-    }
-
-    public void checkRobotHasCrossedStartLine(Robot r) {
-        // TODO
+    public boolean checkRobotHasCrossedStartLine(Point previousPosition, Robot robot) {
+        Line2D movement = new Line2D.Double(previousPosition.x, previousPosition.y, robot.getPosition().x, robot.getPosition().y);
+        return startLine.intersectsLine(movement);
     }
 
     public Robot getRobot(int index) throws Exception {
