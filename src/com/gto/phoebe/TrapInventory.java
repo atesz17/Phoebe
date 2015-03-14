@@ -1,8 +1,5 @@
 package com.gto.phoebe;
 
-/**
- * Created by atesz17 on 3/5/2015.
- */
 public class TrapInventory {
 
     private int oilCount;
@@ -13,8 +10,10 @@ public class TrapInventory {
         glueCount = 0;
     }
 
-    // TODO: mivan ha valaki negativot ad, le kell kezelni
-    public TrapInventory(int oilCount, int glueCount)  {
+    public TrapInventory(int oilCount, int glueCount) throws Exception {
+        if (oilCount < 0 || glueCount < 0) {
+            throw new Exception();
+        }
         this.oilCount = oilCount;
         this.glueCount = glueCount;
     }
@@ -38,7 +37,7 @@ public class TrapInventory {
     }
 
     public void reloadTraps()   {
-        oilCount += 1;
-        glueCount += 1;
+        oilCount = 1;
+        glueCount = 1;
     }
 }

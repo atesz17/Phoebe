@@ -2,16 +2,13 @@ package com.gto.phoebe;
 
 import java.awt.*;
 
-/**
- * Created by atesz17 on 3/5/2015.
- */
 public class Oil extends Actor {
 
-    public Oil()    {
+    public Oil() {
         super();
     }
 
-    public Oil(Point position, int size)    {
+    public Oil(Point position, int size) {
         super(position, size);
     }
 

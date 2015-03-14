@@ -2,36 +2,21 @@ package com.gto.phoebe;
 
 import java.awt.*;
 
-/**
- * Created by atesz17 on 3/5/2015.
- */
 public class Robot extends Actor {
 
-    private boolean speedChangeEnabled;
-    private int speed;
-    private Point direction;
-    private double totalDistanceTraveled;
-    private TrapInventory trapInventory;
-    private boolean isDead;
+    private boolean speedChangeEnabled = true;
+    private int speed = 0;
+    private Point direction = new Point(0, 0);
+    private double totalDistanceTraveled = 0D;
+    private TrapInventory trapInventory = new TrapInventory();
+    private boolean isDead = false;
 
     public Robot()  {
         super();
-        speedChangeEnabled = true;
-        speed = 0;
-        direction = new Point(0, 0);
-        totalDistanceTraveled = 0.0;
-        trapInventory = new TrapInventory();
-        isDead = false;
     }
 
     public Robot(Point position, int size)  {
         super(position, size);
-        speedChangeEnabled = true;
-        speed = 0;
-        direction = new Point(0, 0);
-        totalDistanceTraveled = 0.0;
-        trapInventory = new TrapInventory();
-        isDead = false;
     }
 
     public void jump(Point position)    {
@@ -40,7 +25,7 @@ public class Robot extends Actor {
     }
 
     public void die()   {
-        totalDistanceTraveled = 0.0;
+        totalDistanceTraveled = 0D;
         isDead = true;
     }
 
