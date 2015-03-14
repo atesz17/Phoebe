@@ -1,7 +1,7 @@
 package test;
 
 import com.gto.phoebe.Actor;
-import com.gto.phoebe.InputHandler;
+import com.gto.phoebe.Control;
 import com.gto.phoebe.Robot;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,12 +19,12 @@ public class RobotTest {
 
     @Test
     public void jumpTest() {
-        InputHandler inputHandler = new InputHandler();
-        inputHandler.speedChange = 1;
-        inputHandler.angleChange = 90;
+        Control control = new Control();
+        control.speedChange = 1;
+        control.angleChange = 90;
 
         Robot robot = new Robot(new Point(100, 100), 1);
-        robot.jump(inputHandler);
+        robot.jump(control);
         Point expectedPosition = new Point(99, 100);
         Point expectedDirection = new Point(98, 100);
 
@@ -54,13 +54,13 @@ public class RobotTest {
     @Test
     public void totalDistanceTest() {
         Robot robot = new Robot(new Point(100, 100), 1);
-        InputHandler inputHandler = new InputHandler();
-        inputHandler.speedChange = 1;
-        inputHandler.angleChange = 0;
+        Control control = new Control();
+        control.speedChange = 1;
+        control.angleChange = 0;
 
-        robot.jump(inputHandler);
-        robot.jump(inputHandler);
-        robot.jump(inputHandler);
+        robot.jump(control);
+        robot.jump(control);
+        robot.jump(control);
 
         Assert.assertEquals(6D, robot.getTotalDistanceTraveled(), 0);
     }

@@ -1,7 +1,7 @@
 package test;
 
+import com.gto.phoebe.Control;
 import com.gto.phoebe.Glue;
-import com.gto.phoebe.InputHandler;
 import com.gto.phoebe.Level;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,17 +13,17 @@ public class LevelTest {
 
     @Test
     public void winnerTest() throws Exception {
-        InputHandler inputHandler = new InputHandler();
-        inputHandler.speedChange = 1;
-        inputHandler.angleChange = 90;
+        Control control = new Control();
+        control.speedChange = 1;
+        control.angleChange = 90;
 
         Level level = new Level(100, 600, 600, new Point(100, 0), new Point(200, 0));
 
         level.getRobot(0).setSpeed(10);
-        level.getRobot(0).jump(inputHandler);
+        level.getRobot(0).jump(control);
 
         level.getRobot(1).setSpeed(5);
-        level.getRobot(1).jump(inputHandler);
+        level.getRobot(1).jump(control);
 
         Assert.assertTrue(level.getWinner().equals(level.getRobot(0)));
     }

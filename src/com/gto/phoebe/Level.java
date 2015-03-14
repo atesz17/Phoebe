@@ -36,13 +36,16 @@ public class Level {
 
     public void gameCycle() {
         while (remainingTurns > 0) {
-            if (!isEverybodyAlive()) {
-                break;
-            }
-
             for (Robot robot : robots) {
+                if (!isEverybodyAlive()) {
+                    remainingTurns = 0;
+                    break;
+                }
+                Control.printToConsole("Robot " + (robots.indexOf(robot) + 1) + ": ");
                 turn(robot);
             }
+
+            remainingTurns--;
         }
     }
 

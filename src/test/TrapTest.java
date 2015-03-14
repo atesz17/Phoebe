@@ -14,14 +14,14 @@ public class TrapTest {
     public void glueTest() {
         Robot robot = new Robot(new Point(100, 100), 1);
 
-        InputHandler inputHandler = new InputHandler();
-        inputHandler.speedChange = 1;
-        inputHandler.angleChange = 90;
+        Control control = new Control();
+        control.speedChange = 1;
+        control.angleChange = 90;
 
-        robot.jump(inputHandler);
-        robot.jump(inputHandler);
-        robot.jump(inputHandler);
-        robot.jump(inputHandler);
+        robot.jump(control);
+        robot.jump(control);
+        robot.jump(control);
+        robot.jump(control);
 
         Actor glue = new Glue(new Point(100, 100), 1);
         glue.activateEffectOn(robot);

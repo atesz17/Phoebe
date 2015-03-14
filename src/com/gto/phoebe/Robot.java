@@ -21,11 +21,11 @@ public class Robot extends Actor {
     }
 
     public void jump() {
-        InputHandler input = InputHandler.getFromConsole(this);
+        Control input = Control.getInputFromConsole(this);
         jump(input);
     }
 
-    public void jump(InputHandler input) {
+    public void jump(Control input) {
         Point newPosition = calculatePosition(input);
         speed += input.speedChange;
         direction = new Point((newPosition.x - getPosition().x) + newPosition.x, (newPosition.y - getPosition().y) + newPosition.y);
@@ -35,7 +35,7 @@ public class Robot extends Actor {
         speedChangeEnabled = true;
     }
 
-    private Point calculatePosition(InputHandler input) {
+    private Point calculatePosition(Control input) {
         int newSpeed = speed + input.speedChange;
         double newAngle = getAngle() + input.angleChange;
 
