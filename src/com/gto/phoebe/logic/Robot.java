@@ -1,7 +1,7 @@
 package com.gto.phoebe.logic;
 
 import com.gto.phoebe.domain.Movement;
-import com.gto.phoebe.ui.ConsoleInterface;
+import com.gto.phoebe.skeleton.Skeleton;
 import com.gto.phoebe.ui.UserInterface;
 
 import java.awt.*;
@@ -69,7 +69,10 @@ public class Robot extends Actor {
     }
 
     public Oil dropOil()    {
-        return trapInventory.getOil();
+        Skeleton.methodCall("dropOil()");
+        Oil oil = trapInventory.getOil();
+        Skeleton.methodReturn("Oil");
+        return oil;
     }
 
     public Glue dropGlue()  {

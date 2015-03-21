@@ -1,7 +1,7 @@
 package com.gto.phoebe.logic;
 
 import com.gto.phoebe.domain.Trap;
-import com.gto.phoebe.ui.ConsoleInterface;
+import com.gto.phoebe.skeleton.Skeleton;
 import com.gto.phoebe.ui.UserInterface;
 
 import java.awt.*;
@@ -41,6 +41,7 @@ public class Level {
     }
 
     public void gameCycle() {
+        Skeleton.methodCall("gameCycle()");
         while (remainingTurns > 0) {
             for (Robot robot : robots) {
                 if (!isEverybodyAlive()) {
@@ -53,6 +54,7 @@ public class Level {
 
             remainingTurns--;
         }
+        Skeleton.methodReturn("void");
     }
 
     private void turn(Robot robot) {
@@ -116,7 +118,9 @@ public class Level {
     }
 
     public void addActorToLevel(Actor actor) {
+        Skeleton.methodCall("addActorToLevel(Actor)");
         fields.add(actor);
+        Skeleton.methodReturn("void");
     }
 
     public void removeActorFromLevel(Actor actor) {

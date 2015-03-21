@@ -1,5 +1,7 @@
 package com.gto.phoebe.logic;
 
+import com.gto.phoebe.skeleton.Skeleton;
+
 public class TrapInventory {
 
     private int oilCount;
@@ -19,12 +21,14 @@ public class TrapInventory {
     }
 
     public Oil getOil() {
+        Skeleton.methodCall("getOil()");
+        Oil oil = null;
         if (oilCount > 0)  {
             oilCount -= 1;
-            return new Oil();
-        } else  {
-            return null;
+            oil = new Oil();
         }
+        Skeleton.methodReturn("Oil");
+        return oil;
     }
 
     public Glue getGlue()   {
