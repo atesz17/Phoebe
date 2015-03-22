@@ -3,6 +3,8 @@ package com.gto.phoebe.skeleton;
 import com.gto.phoebe.logic.Level;
 import com.gto.phoebe.ui.UserInterface;
 
+import javax.jws.soap.SOAPBinding;
+import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.awt.*;
 import java.util.Scanner;
 
@@ -32,7 +34,7 @@ public class SkeletonMain {
 
                 break;
             case 5:
-
+                uresHelyreLepARobot();
                 break;
             case 6:
                 tiltottMezoreLepARobot();
@@ -112,6 +114,14 @@ public class SkeletonMain {
     private void tiltottMezoreLepARobot()   {
         System.out.println("Teszteset: 6. Tiltott mezore lep a robot");
         Skeleton.init(6);
+        UserInterface skeletonInterface = new SkeletonInterface();
+        Level level = new Level(1, 200, 200, new Point(0, 0), new Point(0, 0), skeletonInterface);
+        level.gameCycle();
+    }
+
+    private void uresHelyreLepARobot()  {
+        System.out.println("Teszteset: 5. Ures mezore lep a robot");
+        Skeleton.init(5);
         UserInterface skeletonInterface = new SkeletonInterface();
         Level level = new Level(1, 200, 200, new Point(0, 0), new Point(0, 0), skeletonInterface);
         level.gameCycle();

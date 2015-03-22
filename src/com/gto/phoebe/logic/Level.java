@@ -103,6 +103,7 @@ public class Level {
     }
 
     public void checkCollisionOnRobot(Robot robot) {
+        Skeleton.methodCall("checkCollisionOnRobot(robot)");
         ListIterator<Actor> iter = fields.listIterator();
         while (iter.hasNext()) {
             Actor field = iter.next();
@@ -112,6 +113,7 @@ public class Level {
                 iter.add(new NormalField(field.getPosition(), 1));
             }
         }
+        Skeleton.methodReturn("void");
     }
 
     private boolean checkActorInRange(Actor field, Robot robot) {
