@@ -5,8 +5,6 @@ import com.gto.phoebe.logic.Level;
 import com.gto.phoebe.logic.Oil;
 import com.gto.phoebe.ui.UserInterface;
 
-import javax.jws.soap.SOAPBinding;
-import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.awt.*;
 import java.util.Scanner;
 
@@ -98,7 +96,7 @@ public class SkeletonMain {
 
     }
 
-    private void robotAthaladAKezdovonalon()    {
+    private void robotAthaladAKezdovonalon() {
         System.out.println("Teszteset: 7. Robot athalad a kezdovonalon");
         Skeleton.init(7);
         UserInterface skeletonInterface = new SkeletonInterface();
@@ -106,7 +104,7 @@ public class SkeletonMain {
         level.gameCycle();
     }
 
-    private void tiltottMezoreLepARobot()   {
+    private void tiltottMezoreLepARobot() {
         System.out.println("Teszteset: 6. Tiltott mezore lep a robot");
         Skeleton.init(6);
         UserInterface skeletonInterface = new SkeletonInterface();
@@ -114,7 +112,7 @@ public class SkeletonMain {
         level.gameCycle();
     }
 
-    private void uresHelyreLepARobot()  {
+    private void uresHelyreLepARobot() {
         System.out.println("Teszteset: 5. Ures mezore lep a robot");
         Skeleton.init(5);
         UserInterface skeletonInterface = new SkeletonInterface();
@@ -128,7 +126,7 @@ public class SkeletonMain {
         UserInterface skeletonInterface = new SkeletonInterface();
         Level level = new Level(100, 600, 600, new Point(100, 0), new Point(200, 0), skeletonInterface);
         level.gameCycle();
-        level.addActorToLevel(new Oil(new Point(110,101), 1));
+        level.addActorToLevel(new Oil(new Point(110, 101), 1));
     }
 
     private void robotRagacsfoltraLep() {
@@ -137,7 +135,7 @@ public class SkeletonMain {
         UserInterface skeletonInterface = new SkeletonInterface();
         Level level = new Level(100, 600, 600, new Point(100, 0), new Point(200, 0), skeletonInterface);
         level.gameCycle();
-        level.addActorToLevel(new Glue(new Point(110,101), 1));
+        level.addActorToLevel(new Glue(new Point(110, 101), 1));
 
     }
 
