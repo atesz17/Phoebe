@@ -15,6 +15,10 @@ public class SkeletonInterface implements UserInterface {
                 movement.speedChange = 0;
                 movement.angleChange = 0;
                 break;
+            case 2:
+                movement.speedChange = 0;
+                movement.angleChange = 0;
+                break;
             case 6:
                 movement.speedChange = 100;
                 movement.angleChange = 90;
@@ -48,6 +52,9 @@ public class SkeletonInterface implements UserInterface {
         switch (Skeleton.testCase) {
             case 1:
                 trap = Trap.OIL;
+                break;
+            case 2:
+                trap = Trap.GLUE;
                 break;
         }
         return trap;

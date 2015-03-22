@@ -7,6 +7,7 @@ import com.gto.phoebe.ui.UserInterface;
 import java.awt.*;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -123,13 +124,15 @@ public class Level {
     }
 
     public void addActorToLevel(Actor actor) {
-        Skeleton.methodCall("addActorToLevel(Actor)");
+        Skeleton.methodCall("addActorToLevel(actor)");
         fields.add(actor);
         Skeleton.methodReturn("void");
     }
 
     public void removeActorFromLevel(Actor actor) {
+        Skeleton.methodCall("removeActorFromLevel(actor)");
         fields.remove(actor);
+        Skeleton.methodReturn("void");
     }
 
     public boolean checkRobotHasCrossedStartLine(Point previousPosition, Robot robot) {

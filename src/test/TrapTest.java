@@ -1,4 +1,4 @@
-package test;
+/*package test;
 
 import com.gto.phoebe.domain.Movement;
 import com.gto.phoebe.logic.Actor;
@@ -52,3 +52,4 @@ public class TrapTest {
         Assert.assertEquals(false, robot.getSpeedChangeEnabled());
     }
 }
+*/

@@ -1,15 +1,19 @@
 package com.gto.phoebe.logic;
 
+import com.gto.phoebe.skeleton.Skeleton;
+
 import java.awt.*;
 
 public class Glue extends Actor {
 
     public Glue()    {
         super();
+        Skeleton.createObject("glue");
     }
 
     public Glue(Point position, int size)    {
         super(position, size);
+        Skeleton.createObject("glue");
     }
 
     @Override

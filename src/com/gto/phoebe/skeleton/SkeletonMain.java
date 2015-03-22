@@ -23,7 +23,7 @@ public class SkeletonMain {
                 olajfoltElhelyezese();
                 break;
             case 2:
-
+                ragacsfoltElhelyezese();
                 break;
             case 3:
 
@@ -41,10 +41,10 @@ public class SkeletonMain {
                 robotAthaladAKezdovonalon();
                 break;
             case 8:
-                palyaLetrehozasa();
+
                 break;
             case 9:
-                jatekVege();
+
                 break;
         }
 
@@ -80,25 +80,18 @@ public class SkeletonMain {
         System.out.println("Teszteset: 1. Olajfolt elhelyezése");
         Skeleton.init(1);
         UserInterface skeletonInterface = new SkeletonInterface();
-        Level level = new Level(1, 600, 600, new Point(100, 0), new Point(200, 0), skeletonInterface);
+        Level level = new Level(100, 600, 600, new Point(100, 0), new Point(200, 0), skeletonInterface);
         level.gameCycle();
 
     }
 
-    private void jatekVege()    {
-        System.out.println("Teszteset: 9. Jatek vege");
-        Skeleton.init(9);
+    private void ragacsfoltElhelyezese() {
+        System.out.println("Teszteset: 2. Ragacsfolt elhelyezése");
+        Skeleton.init(2);
         UserInterface skeletonInterface = new SkeletonInterface();
-        Level level = new Level(1, 50, 50, new Point(2, 1), new Point(2, 2), skeletonInterface);
+        Level level = new Level(100, 600, 600, new Point(100, 0), new Point(200, 0), skeletonInterface);
         level.gameCycle();
-        level.getWinner();
-    }
 
-    private void palyaLetrehozasa()    {
-        System.out.println("Teszteset: 8. Palya letrehozasa");
-        Skeleton.init(8);
-        UserInterface skeletonInterface = new SkeletonInterface();
-        Level level = new Level(1, 10, 10, new Point(2, 1), new Point(2, 2), skeletonInterface);
     }
 
     private void robotAthaladAKezdovonalon()    {

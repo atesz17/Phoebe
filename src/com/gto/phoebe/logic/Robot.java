@@ -75,12 +75,15 @@ public class Robot extends Actor {
     public Oil dropOil()    {
         Skeleton.methodCall("dropOil()");
         Oil oil = trapInventory.getOil();
-        Skeleton.methodReturn("Oil");
+        Skeleton.methodReturn("oil");
         return oil;
     }
 
     public Glue dropGlue()  {
-        return trapInventory.getGlue();
+        Skeleton.methodCall("dropGlue()");
+        Glue glue = trapInventory.getGlue();
+        Skeleton.methodReturn("glue");
+        return glue;
     }
 
     public void reloadTraps()   {

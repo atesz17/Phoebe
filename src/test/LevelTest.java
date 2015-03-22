@@ -1,4 +1,4 @@
-package test;
+/*package test;
 
 import com.gto.phoebe.domain.Movement;
 import com.gto.phoebe.ui.ConsoleInterface;
@@ -50,3 +50,4 @@ public class LevelTest {
         Assert.assertEquals(50, level.getRobot(0).getSpeed());
     }
 }
+*/

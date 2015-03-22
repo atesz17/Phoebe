@@ -8,8 +8,8 @@ public class TrapInventory {
     private int glueCount;
 
     public TrapInventory() {
-        oilCount = 0;
-        glueCount = 0;
+        oilCount = 1;
+        glueCount = 1;
     }
 
     public TrapInventory(int oilCount, int glueCount) throws Exception {
@@ -27,17 +27,19 @@ public class TrapInventory {
             oilCount -= 1;
             oil = new Oil();
         }
-        Skeleton.methodReturn("Oil");
+        Skeleton.methodReturn("oil");
         return oil;
     }
 
     public Glue getGlue()   {
+        Skeleton.methodCall("getGlue()");
+        Glue glue = null;
         if (glueCount > 0)  {
             glueCount -= 1;
-            return new Glue();
-        } else  {
-            return null;
+            glue = new Glue();
         }
+        Skeleton.methodReturn("glue");
+        return glue;
     }
 
     public void reloadTraps()   {
