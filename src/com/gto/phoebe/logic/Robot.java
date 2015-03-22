@@ -22,6 +22,7 @@ public class Robot extends Actor {
 
     public Robot(Point position, int size, UserInterface userInterface)  {
         super(position, size);
+        Skeleton.createObject("robot");
         setDirection(new Point(position.x, position.y + 1));
         this.userInterface = userInterface;
     }

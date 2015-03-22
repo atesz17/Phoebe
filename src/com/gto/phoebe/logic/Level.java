@@ -20,9 +20,11 @@ public class Level {
     private UserInterface userInterface;
 
     public Level(int remainingTurns, int width, int height, Point startLinePointOne, Point startLinePointTwo, UserInterface userInterface) {
+        Skeleton.createObject("level");
         this.remainingTurns = remainingTurns;
         this.userInterface = userInterface;
         startLine = new Line2D.Double(startLinePointOne.getX(), startLinePointOne.getY(), startLinePointTwo.getX(), startLinePointTwo.getY());
+        Skeleton.createObject("startLine");
         robots.add(new Robot(new Point(110, 100), 1, userInterface));
         robots.add(new Robot(new Point(110, 110), 1, userInterface));
         initMap(width, height);
