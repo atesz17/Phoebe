@@ -18,6 +18,8 @@ public class Oil extends Actor {
 
     @Override
     public void activateEffectOn(Robot robot) {
+        Skeleton.methodCall("activateEffectOn(robot)");
         robot.setSpeedChangeEnabled(false);
+        Skeleton.methodReturn("void");
     }
 }

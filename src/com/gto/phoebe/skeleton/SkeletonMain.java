@@ -1,6 +1,8 @@
 package com.gto.phoebe.skeleton;
 
+import com.gto.phoebe.logic.Glue;
 import com.gto.phoebe.logic.Level;
+import com.gto.phoebe.logic.Oil;
 import com.gto.phoebe.ui.UserInterface;
 
 import javax.jws.soap.SOAPBinding;
@@ -28,10 +30,10 @@ public class SkeletonMain {
                 ragacsfoltElhelyezese();
                 break;
             case 3:
-
+                robotOlajfoltraLep();
                 break;
             case 4:
-
+                robotRagacsfoltraLep();
                 break;
             case 5:
                 uresHelyreLepARobot();
@@ -119,4 +121,24 @@ public class SkeletonMain {
         Level level = new Level(1, 200, 200, new Point(0, 0), new Point(0, 0), skeletonInterface);
         level.gameCycle();
     }
+
+    private void robotOlajfoltraLep() {
+        System.out.println("Teszteset: 3. Robot olajfoltra lép");
+        Skeleton.init(3);
+        UserInterface skeletonInterface = new SkeletonInterface();
+        Level level = new Level(100, 600, 600, new Point(100, 0), new Point(200, 0), skeletonInterface);
+        level.gameCycle();
+        level.addActorToLevel(new Oil(new Point(110,101), 1));
+    }
+
+    private void robotRagacsfoltraLep() {
+        System.out.println("Teszteset: 4. Robot ragacsfoltra lép");
+        Skeleton.init(3);
+        UserInterface skeletonInterface = new SkeletonInterface();
+        Level level = new Level(100, 600, 600, new Point(100, 0), new Point(200, 0), skeletonInterface);
+        level.gameCycle();
+        level.addActorToLevel(new Glue(new Point(110,101), 1));
+
+    }
+
 }

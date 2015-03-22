@@ -110,8 +110,13 @@ public class Level {
             Actor field = iter.next();
             if (checkActorInRange(field, robot)) {
                 field.activateEffectOn(robot);
+                Skeleton.methodCall("removeActorFromLevel(field)");
                 iter.remove();
+                Skeleton.methodReturn("void");
+                Skeleton.createObject("newField");
+                Skeleton.methodCall("addActorToLevel(newField)");
                 iter.add(new NormalField(field.getPosition(), 1));
+                Skeleton.methodReturn("void");
             }
         }
         Skeleton.methodReturn("void");

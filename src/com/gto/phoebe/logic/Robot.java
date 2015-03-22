@@ -97,15 +97,21 @@ public class Robot extends Actor {
     }
 
     public void setSpeedChangeEnabled(boolean enabled) {
+        Skeleton.methodCall("setSpeedChangeEnabled(false)");
         speedChangeEnabled = enabled;
+        Skeleton.methodReturn("void");
     }
 
     public int getSpeed()   {
+        Skeleton.methodCall("getSpeed");
+        Skeleton.methodReturn("2");
         return speed;
     }
 
     public void setSpeed(int newSpeed)  {
+        Skeleton.methodCall("setSpeed(1)");
         speed = newSpeed;
+        Skeleton.methodReturn("void");
     }
 
     public Point getDirection() {

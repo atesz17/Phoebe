@@ -18,7 +18,9 @@ public class Glue extends Actor {
 
     @Override
     public void activateEffectOn(Robot robot) {
+        Skeleton.methodCall("activateEffectOn(robot)");
         int newSpeed = Math.round(robot.getSpeed() / 2.0f);
         robot.setSpeed(newSpeed);
+        Skeleton.methodReturn("void");
     }
 }
