@@ -23,6 +23,14 @@ public class Skeleton {
         System.out.println(string);
     }
 
+    public static void createObject(String objectName)  {
+        level++;
+        StringBuilder string = new StringBuilder();
+        string.append(tabs()).append("<<create>> ").append(objectName);
+        System.out.println(string);
+        level--;
+    }
+
     private static String tabs() {
         String ret = "";
         for (int i = 0; i < level; i++) {

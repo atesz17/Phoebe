@@ -41,7 +41,7 @@ public class SkeletonMain {
 
                 break;
             case 8:
-
+                palyaLetrehozasa();
                 break;
             case 9:
                 jatekVege();
@@ -92,5 +92,12 @@ public class SkeletonMain {
         Level level = new Level(1, 50, 50, new Point(2, 1), new Point(2, 2), skeletonInterface);
         level.gameCycle();
         level.getWinner();
+    }
+
+    private void palyaLetrehozasa()    {
+        System.out.println("Teszteset: 8. Palya letrehozasa");
+        Skeleton.init(8);
+        UserInterface skeletonInterface = new SkeletonInterface();
+        Level level = new Level(1, 10, 10, new Point(2, 1), new Point(2, 2), skeletonInterface);
     }
 }

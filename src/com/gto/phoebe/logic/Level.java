@@ -29,6 +29,7 @@ public class Level {
     }
 
     private void initMap(int width, int height) {
+        Skeleton.methodCall("initMap(" + Integer.toString(width) + ", " + Integer.toString(height) + ")");
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 if (x * x + y * y > 10000 && x * x + y * y < 15000) {
@@ -38,6 +39,7 @@ public class Level {
                 }
             }
         }
+        Skeleton.methodReturn("void");
     }
 
     public void gameCycle() {
