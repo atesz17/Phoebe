@@ -3,7 +3,6 @@ package com.gto.phoebe.logic;
 import com.gto.phoebe.domain.Movement;
 import com.gto.phoebe.skeleton.Skeleton;
 import com.gto.phoebe.ui.UserInterface;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.awt.*;
 
