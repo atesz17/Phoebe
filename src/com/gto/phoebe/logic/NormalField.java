@@ -1,5 +1,7 @@
 package com.gto.phoebe.logic;
 
+import com.gto.phoebe.skeleton.Skeleton;
+
 import java.awt.*;
 
 public class NormalField extends Actor {
@@ -14,6 +16,7 @@ public class NormalField extends Actor {
 
     @Override
     public void activateEffectOn(Robot robot) {
-
+        Skeleton.methodCall("activateEffectOn(robot)");
+        Skeleton.methodReturn("void");
     }
 }
