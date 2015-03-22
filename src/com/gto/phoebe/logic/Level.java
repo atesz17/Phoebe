@@ -7,7 +7,6 @@ import com.gto.phoebe.ui.UserInterface;
 import java.awt.*;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -33,10 +32,10 @@ public class Level {
         Skeleton.methodCall("initMap(" + Integer.toString(width) + ", " + Integer.toString(height) + ")");
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                if (x * x + y * y > 10000 && x * x + y * y < 15000) {
-                    fields.add(new NormalField(new Point(x, y), 1));
-                } else {
+                if (x == 110 && y == 99) {
                     fields.add(new DeathField(new Point(x, y), 1));
+                } else {
+                    fields.add(new NormalField(new Point(x, y), 1));
                 }
             }
         }

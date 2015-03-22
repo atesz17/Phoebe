@@ -32,8 +32,8 @@ public class SkeletonInterface implements UserInterface {
                 movement.angleChange = 0;
                 break;
             case 6:
-                movement.speedChange = 100;
-                movement.angleChange = 90;
+                movement.speedChange = 1;
+                movement.angleChange = 180;
                 break;
             case 7:
                 movement.speedChange = 1;
