@@ -61,8 +61,10 @@ public class Robot extends Actor {
     }
 
     public void die()   {
+        Skeleton.methodCall("die()");
         totalDistanceTraveled = 0D;
         isDead = true;
+        Skeleton.methodReturn("void");
     }
 
     @Override

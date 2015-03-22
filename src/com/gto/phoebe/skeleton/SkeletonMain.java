@@ -35,7 +35,7 @@ public class SkeletonMain {
 
                 break;
             case 6:
-
+                tiltottMezoreLepARobot();
                 break;
             case 7:
                 robotAthaladAKezdovonalon();
@@ -106,6 +106,14 @@ public class SkeletonMain {
         Skeleton.init(7);
         UserInterface skeletonInterface = new SkeletonInterface();
         Level level = new Level(1, 100, 100, new Point(100, 101), new Point(120, 101), skeletonInterface);
+        level.gameCycle();
+    }
+
+    private void tiltottMezoreLepARobot()   {
+        System.out.println("Teszteset: 6. Tiltott mezore lep a robot");
+        Skeleton.init(6);
+        UserInterface skeletonInterface = new SkeletonInterface();
+        Level level = new Level(1, 200, 200, new Point(0, 0), new Point(0, 0), skeletonInterface);
         level.gameCycle();
     }
 }
