@@ -3,6 +3,7 @@ package com.gto.phoebe.logic;
 import com.gto.phoebe.domain.Movement;
 import com.gto.phoebe.skeleton.Skeleton;
 import com.gto.phoebe.ui.UserInterface;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.awt.*;
 
@@ -98,14 +99,14 @@ public class Robot extends Actor {
     }
 
     public void setSpeedChangeEnabled(boolean enabled) {
-        Skeleton.methodCall("setSpeedChangeEnabled(false)");
+        Skeleton.methodCall("setSpeedChangeEnabled(" + Boolean.toString(enabled) + ")");
         speedChangeEnabled = enabled;
         Skeleton.methodReturn("void");
     }
 
     public int getSpeed()   {
         Skeleton.methodCall("getSpeed");
-        Skeleton.methodReturn("2");
+        Skeleton.methodReturn(Integer.toString(speed));
         return speed;
     }
 
