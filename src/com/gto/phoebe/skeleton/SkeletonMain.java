@@ -131,7 +131,7 @@ public class SkeletonMain {
 
     private void robotRagacsfoltraLep() {
         System.out.println("Teszteset: 4. Robot ragacsfoltra lép");
-        Skeleton.init(3);
+        Skeleton.init(4);
         UserInterface skeletonInterface = new SkeletonInterface();
         Level level = new Level(1, 600, 600, new Point(100, 0), new Point(200, 0), skeletonInterface);
         level.addActorToLevel(new Glue(new Point(110, 101), 1));

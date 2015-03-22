@@ -133,6 +133,12 @@ public class Level {
 
     public void addActorToLevel(Actor actor) {
         Skeleton.methodCall("addActorToLevel(actor)");
+        for(int i = 0; i<fields.size(); i++)    {
+            if (fields.get(i).getPosition().equals(actor.getPosition()))   {
+                fields.remove(i);
+                break;
+            }
+        }
         fields.add(actor);
         Skeleton.methodReturn("void");
     }
