@@ -41,7 +41,9 @@ public class TrapInventory {
     }
 
     public void reloadTraps()   {
+        Skeleton.methodCall("reloadTraps()");
         oilCount = 1;
         glueCount = 1;
+        Skeleton.methodReturn("void");
     }
 }

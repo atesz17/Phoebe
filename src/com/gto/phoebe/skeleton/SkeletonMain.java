@@ -38,7 +38,7 @@ public class SkeletonMain {
 
                 break;
             case 7:
-
+                robotAthaladAKezdovonalon();
                 break;
             case 8:
                 palyaLetrehozasa();
@@ -99,5 +99,13 @@ public class SkeletonMain {
         Skeleton.init(8);
         UserInterface skeletonInterface = new SkeletonInterface();
         Level level = new Level(1, 10, 10, new Point(2, 1), new Point(2, 2), skeletonInterface);
+    }
+
+    private void robotAthaladAKezdovonalon()    {
+        System.out.println("Teszteset: 7. Robot athalad a kezdovonalon");
+        Skeleton.init(7);
+        UserInterface skeletonInterface = new SkeletonInterface();
+        Level level = new Level(1, 100, 100, new Point(100, 101), new Point(120, 101), skeletonInterface);
+        level.gameCycle();
     }
 }

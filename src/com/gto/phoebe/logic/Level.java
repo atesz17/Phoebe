@@ -133,7 +133,9 @@ public class Level {
     }
 
     public boolean checkRobotHasCrossedStartLine(Point previousPosition, Robot robot) {
+        Skeleton.methodCall("checkRobotHasCrossedStartLine(previousPosition, robot)");
         Line2D movement = new Line2D.Double(previousPosition.x, previousPosition.y, robot.getPosition().x, robot.getPosition().y);
+        Skeleton.methodReturn(Boolean.toString(startLine.intersectsLine(movement)));
         return startLine.intersectsLine(movement);
     }
 

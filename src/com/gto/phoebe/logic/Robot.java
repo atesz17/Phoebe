@@ -27,8 +27,10 @@ public class Robot extends Actor {
     }
 
     public void jump() {
+        Skeleton.methodCall("jump()");
         Movement input = userInterface.getMovementInput(this);
         jump(input);
+        Skeleton.methodReturn("void");
     }
 
     public void jump(Movement movement) {
@@ -80,7 +82,9 @@ public class Robot extends Actor {
     }
 
     public void reloadTraps()   {
+        Skeleton.methodCall("reloadTraps()");
         trapInventory.reloadTraps();
+        Skeleton.methodReturn("void");
     }
 
     public boolean getSpeedChangeEnabled()    {
