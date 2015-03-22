@@ -2,6 +2,7 @@ package com.gto.phoebe.skeleton;
 
 public class Skeleton {
     public static int testCase = 0;
+    public static int turn = 1;
     private static int level = 0;
 
     public static void init(int testCase) {

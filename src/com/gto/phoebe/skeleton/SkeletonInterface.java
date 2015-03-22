@@ -15,6 +15,14 @@ public class SkeletonInterface implements UserInterface {
                 movement.speedChange = 0;
                 movement.angleChange = 0;
                 break;
+            case 9:
+                if (Skeleton.turn == 1) {
+                    movement.speedChange = 10;
+                    movement.angleChange = 0;
+                } else  {
+                    movement.speedChange = 5;
+                    movement.angleChange = 0;
+                }
         }
 
         return movement;

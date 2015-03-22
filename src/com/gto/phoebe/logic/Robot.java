@@ -108,6 +108,8 @@ public class Robot extends Actor {
     }
 
     public double getTotalDistanceTraveled()    {
+        Skeleton.methodCall("getTotalDistanceTraveled()");
+        Skeleton.methodReturn(Double.toString(totalDistanceTraveled));
         return totalDistanceTraveled;
     }
 

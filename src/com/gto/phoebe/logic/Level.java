@@ -23,8 +23,8 @@ public class Level {
         this.remainingTurns = remainingTurns;
         this.userInterface = userInterface;
         startLine = new Line2D.Double(startLinePointOne.getX(), startLinePointOne.getY(), startLinePointTwo.getX(), startLinePointTwo.getY());
-        robots.add(new Robot(new Point(100, 100), 1, userInterface));
-        robots.add(new Robot(new Point(100, 110), 1, userInterface));
+        robots.add(new Robot(new Point(110, 100), 1, userInterface));
+        robots.add(new Robot(new Point(110, 110), 1, userInterface));
         initMap(width, height);
     }
 
@@ -42,6 +42,7 @@ public class Level {
 
     public void gameCycle() {
         Skeleton.methodCall("gameCycle()");
+        Skeleton.turn = 1;
         while (remainingTurns > 0) {
             for (Robot robot : robots) {
                 if (!isEverybodyAlive()) {
@@ -50,6 +51,8 @@ public class Level {
                 }
                 userInterface.print("Robot " + (robots.indexOf(robot) + 1) + ": ");
                 turn(robot);
+
+                Skeleton.turn++;
             }
 
             remainingTurns--;
@@ -140,14 +143,18 @@ public class Level {
         }
     }
 
+    /**
+     * Ez a fuggveny felelos azert, hogyha vege van a jateknak, akkor visszaadja azt a robotot, amelyik nyert az alapjan
+     * hogy melyik tett meg nagyobb tavolsagot
+     * @return Robot Ez a robot tette meg a nagyobb tavolsagot, tehat nyert
+     */
     public Robot getWinner() {
+        Skeleton.methodCall("getWinner()");
         Robot winner = robots.get(0);
-        for (Robot robot : robots) {
-            if (winner.getTotalDistanceTraveled() < robot.getTotalDistanceTraveled()) {
-                winner = robot;
+            if (winner.getTotalDistanceTraveled() < robots.get(1).getTotalDistanceTraveled()) {
+                winner = robots.get(1);
             }
-        }
-
+        Skeleton.methodReturn("winner");
         return winner;
     }
 }

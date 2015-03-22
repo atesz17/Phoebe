@@ -44,7 +44,7 @@ public class SkeletonMain {
 
                 break;
             case 9:
-
+                jatekVege();
                 break;
         }
 
@@ -80,8 +80,17 @@ public class SkeletonMain {
         System.out.println("Teszteset: 1. Olajfolt elhelyezése");
         Skeleton.init(1);
         UserInterface skeletonInterface = new SkeletonInterface();
-        Level level = new Level(100, 600, 600, new Point(100, 0), new Point(200, 0), skeletonInterface);
+        Level level = new Level(1, 600, 600, new Point(100, 0), new Point(200, 0), skeletonInterface);
         level.gameCycle();
 
+    }
+
+    private void jatekVege()    {
+        System.out.println("Teszteset: 9. Jatek vege");
+        Skeleton.init(9);
+        UserInterface skeletonInterface = new SkeletonInterface();
+        Level level = new Level(1, 50, 50, new Point(2, 1), new Point(2, 2), skeletonInterface);
+        level.gameCycle();
+        level.getWinner();
     }
 }
