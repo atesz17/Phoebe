@@ -2,8 +2,8 @@ package test;
 
 import com.gto.phoebe.domain.Movement;
 import com.gto.phoebe.logic.Actor;
-import com.gto.phoebe.ui.ConsoleInterface;
 import com.gto.phoebe.logic.Robot;
+import com.gto.phoebe.ui.ConsoleInterface;
 import com.gto.phoebe.ui.UserInterface;
 import org.junit.Assert;
 import org.junit.Before;

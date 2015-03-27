@@ -1,7 +1,6 @@
 package com.gto.phoebe.logic;
 
 import com.gto.phoebe.domain.Movement;
-import com.gto.phoebe.ui.ConsoleInterface;
 import com.gto.phoebe.ui.UserInterface;
 
 import java.awt.*;
@@ -45,8 +44,8 @@ public class Robot extends Actor {
         int newSpeed = speed + movement.speedChange;
         double newAngle = getAngle() + movement.angleChange;
 
-        int newX = (int) Math.round(newSpeed * Math.cos(newAngle));
-        int newY = (int) Math.round(newSpeed * Math.sin(newAngle));
+        int newX = (int) Math.round(newSpeed * Math.cos(newAngle * Math.PI / 180));
+        int newY = (int) Math.round(newSpeed * Math.sin(newAngle * Math.PI / 180));
 
         return new Point(getPosition().x + newX, getPosition().y + newY);
     }
@@ -55,7 +54,7 @@ public class Robot extends Actor {
         int a = Math.abs(getDirection().y - getPosition().y);
         int b = Math.abs(getDirection().x - getPosition().x);
         double c = Math.sqrt(a * a + b * b);
-        return Math.asin(a / c);
+        return Math.asin(a / c) * 180 / Math.PI;
     }
 
     public void die()   {
