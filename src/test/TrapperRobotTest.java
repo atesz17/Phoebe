@@ -2,28 +2,26 @@ package test;
 
 import com.gto.phoebe.domain.Movement;
 import com.gto.phoebe.logic.Actor;
-import com.gto.phoebe.logic.Robot;
-import com.gto.phoebe.ui.ConsoleInterface;
-import com.gto.phoebe.ui.UserInterface;
+import com.gto.phoebe.logic.TrapperRobot;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.awt.*;
 
-public class RobotTest {
+public class TrapperRobotTest {
 
-    UserInterface consoleInterface;
+    TestInterface userInterface;
 
     @Before
-    public void setUp(){
-        consoleInterface = new ConsoleInterface();
+    public void setUp() {
+        userInterface = new TestInterface();
     }
 
 
     @Test
     public void robotConstructorTest() {
-        Robot robot = new Robot(new Point(100, 100), 1, consoleInterface);
+        TrapperRobot robot = new TrapperRobot(new Point(100, 100), "Bela", userInterface);
 
         Assert.assertTrue(robot.getPosition().equals(new Point(100, 100)));
     }
@@ -33,9 +31,10 @@ public class RobotTest {
         Movement movement = new Movement();
         movement.speedChange = 1;
         movement.angleChange = 90;
+        userInterface.setMovement(movement);
 
-        Robot robot = new Robot(new Point(100, 100), 1, consoleInterface);
-        robot.jump(movement);
+        TrapperRobot robot = new TrapperRobot(new Point(100, 100), "Bela", userInterface);
+        robot.jump();
         Point expectedPosition = new Point(99, 100);
         Point expectedDirection = new Point(98, 100);
 
@@ -46,7 +45,7 @@ public class RobotTest {
 
     @Test
     public void emptyTrapsTest() {
-        Robot robot = new Robot(new Point(100, 100), 1, consoleInterface);
+        TrapperRobot robot = new TrapperRobot(new Point(100, 100), "Bela", userInterface);
 
         robot.dropGlue();
         Actor trap = robot.dropGlue();
@@ -55,7 +54,7 @@ public class RobotTest {
 
     @Test
     public void reloadTrapsTest() {
-        Robot robot = new Robot(new Point(100, 100), 1, consoleInterface);
+        TrapperRobot robot = new TrapperRobot(new Point(100, 100), "Bela", userInterface);
         robot.dropGlue();
         robot.reloadTraps();
         Actor trap = robot.dropGlue();
@@ -64,14 +63,15 @@ public class RobotTest {
 
     @Test
     public void totalDistanceTest() {
-        Robot robot = new Robot(new Point(100, 100), 1, consoleInterface);
+        TrapperRobot robot = new TrapperRobot(new Point(100, 100), "Bela", userInterface);
         Movement movement = new Movement();
         movement.speedChange = 1;
         movement.angleChange = 0;
+        userInterface.setMovement(movement);
 
-        robot.jump(movement);
-        robot.jump(movement);
-        robot.jump(movement);
+        robot.jump();
+        robot.jump();
+        robot.jump();
 
         Assert.assertEquals(6D, robot.getTotalDistanceTraveled(), 0);
     }

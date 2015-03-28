@@ -2,7 +2,7 @@ package com.gto.phoebe.logic;
 
 import java.awt.*;
 
-public class Glue extends Actor {
+public class Glue extends Trap {
 
     public Glue()    {
         super();
@@ -13,7 +13,16 @@ public class Glue extends Actor {
     }
 
     @Override
-    public void activateEffectOn(Robot robot) {
+    public void collideWith(TrapperRobot robot) {
+        effect(robot);
+    }
+
+    @Override
+    public void collideWith(CleanerRobot robot) {
+        effect(robot);
+    }
+
+    public void effect(Robot robot) {
         int newSpeed = Math.round(robot.getSpeed() / 2.0f);
         robot.setSpeed(newSpeed);
     }

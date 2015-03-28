@@ -1,131 +1,141 @@
 package com.gto.phoebe.logic;
 
-import com.gto.phoebe.domain.Trap;
-import com.gto.phoebe.ui.ConsoleInterface;
 import com.gto.phoebe.ui.UserInterface;
+import com.gto.phoebe.util.PhoebeException;
 
 import java.awt.*;
-import java.awt.geom.Line2D;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 public class Level {
 
-    private List<Robot> robots = new ArrayList<Robot>();
-
-    private List<Actor> fields = new ArrayList<Actor>();
+    private GameMap gameMap;
     private int remainingTurns;
-    private Line2D startLine;
     private UserInterface userInterface;
 
-    public Level(int remainingTurns, int width, int height, Point startLinePointOne, Point startLinePointTwo, UserInterface userInterface) {
+    private List<Robot> robots = new ArrayList<Robot>();
+    private List<Trap> traps = new ArrayList<Trap>();
+
+    private int playersAlive = 0;
+
+    public Level(int remainingTurns, InputStream map, UserInterface userInterface) throws PhoebeException {
+        gameMap = new GameMap(map);
         this.remainingTurns = remainingTurns;
         this.userInterface = userInterface;
-        startLine = new Line2D.Double(startLinePointOne.getX(), startLinePointOne.getY(), startLinePointTwo.getX(), startLinePointTwo.getY());
-        robots.add(new Robot(new Point(100, 100), 1, userInterface));
-        robots.add(new Robot(new Point(100, 110), 1, userInterface));
-        initMap(width, height);
+        addPlayer(new TrapperRobot(new Point(100, 100), "Bela", userInterface));
+        addPlayer(new TrapperRobot(new Point(100, 110), "Ubul", userInterface));
     }
 
-    private void initMap(int width, int height) {
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                if (x * x + y * y > 10000 && x * x + y * y < 15000) {
-                    fields.add(new NormalField(new Point(x, y), 1));
-                } else {
-                    fields.add(new DeathField(new Point(x, y), 1));
-                }
-            }
-        }
+    public void startGame() {
+        gameCycle();
+
+        //TODO itt lesz a jatek vege
     }
 
-    public void gameCycle() {
+    private void gameCycle() {
         while (remainingTurns > 0) {
             for (Robot robot : robots) {
-                if (!isEverybodyAlive()) {
+                removeDead();
+                if (!isAnybodyAlive()) {
                     remainingTurns = 0;
                     break;
                 }
                 userInterface.print("Robot " + (robots.indexOf(robot) + 1) + ": ");
-                turn(robot);
+                robot.turn(this);
             }
-
             remainingTurns--;
         }
+        spawnCleaners();
     }
 
-    private void turn(Robot robot) {
-        Point previousPosition = robot.getPosition();
-        robot.jump();
-
-        if (checkRobotHasCrossedStartLine(previousPosition, robot)) {
-            robot.reloadTraps();
-        }
-        checkCollisionOnRobot(robot);
-        plantTrap(robot);
-    }
-
-    private void plantTrap(Robot robot) {
-        Trap trap = userInterface.getTrapInput(robot);
-        switch (trap){
-            case OIL:
-                Oil oil = robot.dropOil();
-                if(oil != null){
-                    addActorToLevel(oil);
-                }
-                break;
-            case GLUE:
-                Glue glue = robot.dropGlue();
-                if(glue != null){
-                    addActorToLevel(glue);
-                }
-                break;
-            default:
-                break;
-        }
-    }
-
-    private boolean isEverybodyAlive() {
-        for (Robot robot : robots) {
-            if (robot.isDead()) {
-                return false;
+    private void spawnCleaners() {
+        if (5 * Math.random() < 1) {
+            for (int i = 0; i < 4 * Math.random(); i++) {
+                addCleaner();
             }
         }
-        return true;
+    }
+
+    private void removeDead() {
+
+        Iterator<Trap> trapIterator = traps.iterator();
+        while (trapIterator.hasNext()) {
+            Trap trap = trapIterator.next();
+            if (trap.isDead) {
+                trapIterator.remove();
+            }
+        }
+
+        Iterator<Robot> robotIterator = robots.iterator();
+        while (robotIterator.hasNext()) {
+            Robot robot = robotIterator.next();
+            if (robot.isDead) {
+                robotIterator.remove();
+            }
+        }
+    }
+
+    public void checkRobotHasCrossedStartLine(TrapperRobot robot, Point previousPosition) {
+        if (gameMap.checkRobotHasCrossedStartLine(previousPosition, robot)) {
+            robot.reloadTraps();
+        }
+    }
+
+    private boolean isAnybodyAlive() {
+        return playersAlive > 1;
     }
 
     public void checkCollisionOnRobot(Robot robot) {
-        ListIterator<Actor> iter = fields.listIterator();
-        while (iter.hasNext()) {
-            Actor field = iter.next();
-            if (checkActorInRange(field, robot)) {
-                field.activateEffectOn(robot);
-                iter.remove();
-                iter.add(new NormalField(field.getPosition(), 1));
+
+        checkPositionOnMap(robot);
+
+        checkCollisionWithTraps(robot);
+
+        checkCollisionWithRobots(robot);
+    }
+
+    private void checkCollisionWithRobots(Robot robot) {
+        for (Robot otherRobot : robots) {
+            if (checkActorInRange(otherRobot, robot)) {
+                robot.collideWith(otherRobot);
             }
         }
     }
 
-    private boolean checkActorInRange(Actor field, Robot robot) {
+    private void checkCollisionWithTraps(Robot robot) {
+        for (Trap trap : getTrapsCollidingWithRobot(robot)) {
+            robot.collideWith(trap);
+        }
+    }
+
+    public List<Trap> getTrapsCollidingWithRobot(Robot robot) {
+        List<Trap> ret = new ArrayList<Trap>();
+        for (Trap trap : traps) {
+            if (checkActorInRange(trap, robot)) {
+                ret.add(trap);
+            }
+        }
+        return ret;
+    }
+
+    private void checkPositionOnMap(Robot robot) {
+        if (!gameMap.isValidField(robot.getPosition())) {
+            robot.die();
+        }
+    }
+
+    private boolean checkActorInRange(Actor actor, Robot robot) {
         Point robotPosition = robot.getPosition();
-        Point fieldPosition = field.getPosition();
-        int fieldRange = field.getSize();
+        Point fieldPosition = actor.getPosition();
+        int range = actor.getSize();
 
-        return (robotPosition.x - fieldPosition.x) * (robotPosition.x - fieldPosition.x) + (robotPosition.y - fieldPosition.y) * (robotPosition.y - fieldPosition.y) < fieldRange * fieldRange;
+        return (robotPosition.x - fieldPosition.x) * (robotPosition.x - fieldPosition.x) + (robotPosition.y - fieldPosition.y) * (robotPosition.y - fieldPosition.y) < range * range;
     }
 
-    public void addActorToLevel(Actor actor) {
-        fields.add(actor);
-    }
-
-    public void removeActorFromLevel(Actor actor) {
-        fields.remove(actor);
-    }
-
-    public boolean checkRobotHasCrossedStartLine(Point previousPosition, Robot robot) {
-        Line2D movement = new Line2D.Double(previousPosition.x, previousPosition.y, robot.getPosition().x, robot.getPosition().y);
-        return startLine.intersectsLine(movement);
+    public void addTrapToLevel(Trap trap) {
+        traps.add(trap);
     }
 
     public Robot getRobot(int index) throws Exception {
@@ -145,5 +155,19 @@ public class Level {
         }
 
         return winner;
+    }
+
+    public void addPlayer(Robot robot) {
+        //TODO valahogy magatol is le kellene tudnia rakni...
+        robots.add(robot);
+        playersAlive++;
+    }
+
+    public void addCleaner() {
+        robots.add(new CleanerRobot(gameMap.getValidField(), userInterface));
+    }
+
+    public List<Trap> getTraps() {
+        return traps;
     }
 }

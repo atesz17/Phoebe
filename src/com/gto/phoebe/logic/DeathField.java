@@ -14,7 +14,12 @@ public class DeathField extends Actor {
     }
 
     @Override
-    public void activateEffectOn(Robot robot)   {
+    public void collideWith(TrapperRobot robot) {
+        robot.die();
+    }
+
+    @Override
+    public void collideWith(CleanerRobot robot) {
         robot.die();
     }
 }

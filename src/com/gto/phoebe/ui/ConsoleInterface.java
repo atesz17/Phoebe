@@ -1,14 +1,14 @@
 package com.gto.phoebe.ui;
 
 import com.gto.phoebe.domain.Movement;
-import com.gto.phoebe.domain.Trap;
-import com.gto.phoebe.logic.Robot;
+import com.gto.phoebe.domain.TrapTypes;
+import com.gto.phoebe.logic.TrapperRobot;
 
 import java.util.Scanner;
 
 public class ConsoleInterface implements UserInterface{
 
-    public Movement getMovementInput(Robot robot) {
+    public Movement getMovementInput(TrapperRobot robot) {
         Movement movement = new Movement();
         Scanner in = new Scanner(System.in);
 
@@ -37,18 +37,18 @@ public class ConsoleInterface implements UserInterface{
         return !(speedChange > 1 || speedChange < -1);
     }
 
-    public Trap getTrapInput(Robot robot){
+    public TrapTypes getTrapInput(TrapperRobot robot) {
         Scanner in = new Scanner(System.in);
         System.out.println("You can plant traps now.");
         while(true) {
             System.out.println("Type in oil, glue or none");
             String input = in.next();
             if ("oil".equals(input.toLowerCase())) {
-                return Trap.OIL;
+                return TrapTypes.OIL;
             } else if ("glue".equals(input.toLowerCase())) {
-                return Trap.GLUE;
+                return TrapTypes.GLUE;
             } else if ("none".equals(input.toLowerCase())) {
-                return Trap.NONE;
+                return TrapTypes.NONE;
             }
         }
     }

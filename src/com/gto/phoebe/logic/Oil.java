@@ -2,7 +2,7 @@ package com.gto.phoebe.logic;
 
 import java.awt.*;
 
-public class Oil extends Actor {
+public class Oil extends Trap {
 
     public Oil() {
         super();
@@ -13,7 +13,16 @@ public class Oil extends Actor {
     }
 
     @Override
-    public void activateEffectOn(Robot robot) {
+    public void collideWith(TrapperRobot robot) {
+        effect(robot);
+    }
+
+    @Override
+    public void collideWith(CleanerRobot robot) {
+        effect(robot);
+    }
+
+    public void effect(Robot robot) {
         robot.setSpeedChangeEnabled(false);
     }
 }

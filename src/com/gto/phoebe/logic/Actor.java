@@ -4,8 +4,9 @@ import java.awt.*;
 
 public abstract class Actor {
 
-    private Point position;
-    private int size;
+    protected Point position;
+    protected int size;
+    protected boolean isDead;
 
     public Actor() {
         this.position = new Point(0, 0);
@@ -17,8 +18,10 @@ public abstract class Actor {
         this.size = size;
     }
 
-    public abstract void activateEffectOn(Robot robot);
+    //TODO atnevezni: jelentes: ramlepett a parameter
+    public abstract void collideWith(TrapperRobot robot);
 
+    public abstract void collideWith(CleanerRobot robot);
 
     public Point getPosition() {
         return this.position;
@@ -34,5 +37,9 @@ public abstract class Actor {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    public boolean isDead() {
+        return isDead;
     }
 }
