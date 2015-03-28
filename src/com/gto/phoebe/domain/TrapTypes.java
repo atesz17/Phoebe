@@ -1,6 +1,6 @@
 package com.gto.phoebe.domain;
 
-public enum Trap {
+public enum TrapTypes {
     OIL,
     GLUE,
     NONE
