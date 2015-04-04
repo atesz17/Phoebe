@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 public class ConsoleInterface implements UserInterface{
 
+    //TODO vezerlo parancsok ertelmezese jatek kozben, pl exit
+
     public Movement getMovementInput(TrapperRobot robot) {
         Movement movement = new Movement();
         Scanner in = new Scanner(System.in);

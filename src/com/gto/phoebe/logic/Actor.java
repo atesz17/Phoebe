@@ -18,10 +18,9 @@ public abstract class Actor {
         this.size = size;
     }
 
-    //TODO atnevezni: jelentes: ramlepett a parameter
-    public abstract void collideWith(TrapperRobot robot);
+    public abstract void steppedOnBy(TrapperRobot robot);
 
-    public abstract void collideWith(CleanerRobot robot);
+    public abstract void steppedOnBy(CleanerRobot robot);
 
     public Point getPosition() {
         return this.position;

@@ -24,8 +24,8 @@ public class Level {
         gameMap = new GameMap(map);
         this.remainingTurns = remainingTurns;
         this.userInterface = userInterface;
-        addPlayer(new TrapperRobot(new Point(100, 100), "Bela", userInterface));
-        addPlayer(new TrapperRobot(new Point(100, 110), "Ubul", userInterface));
+        addPlayer(new TrapperRobot(new Point(100, 100), "Bela", this, userInterface));
+        addPlayer(new TrapperRobot(new Point(100, 110), "Ubul", this, userInterface));
     }
 
     public void startGame() {
@@ -43,11 +43,18 @@ public class Level {
                     break;
                 }
                 userInterface.print("Robot " + (robots.indexOf(robot) + 1) + ": ");
-                robot.turn(this);
+                robot.turn();
             }
+            ageTraps();
             remainingTurns--;
         }
         spawnCleaners();
+    }
+
+    private void ageTraps() {
+        for(Trap trap : traps){
+            trap.age();
+        }
     }
 
     private void spawnCleaners() {
@@ -121,7 +128,7 @@ public class Level {
     }
 
     private void checkPositionOnMap(Robot robot) {
-        if (!gameMap.isValidField(robot.getPosition())) {
+        if (!isValidField(robot.getPosition())) {
             robot.die();
         }
     }
@@ -158,16 +165,20 @@ public class Level {
     }
 
     public void addPlayer(Robot robot) {
-        //TODO valahogy magatol is le kellene tudnia rakni...
+        //TODO valahogy magatol is le kellene tudnia rakni a start vonalra...
         robots.add(robot);
         playersAlive++;
     }
 
     public void addCleaner() {
-        robots.add(new CleanerRobot(gameMap.getValidField(), userInterface));
+        robots.add(new CleanerRobot(gameMap.getValidField(), this, userInterface));
     }
 
     public List<Trap> getTraps() {
         return traps;
+    }
+
+    public boolean isValidField(Point point){
+        return gameMap.isValidField(point);
     }
 }

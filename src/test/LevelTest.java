@@ -42,7 +42,7 @@ public class LevelTest {
     @Test
     public void checkCollisionOnRobotTest() throws Exception {
         Level level = new Level(100, map, userInterface);
-        level.addTrapToLevel(new Glue(new Point(200, 200), 10));
+        level.addTrapToLevel(new Glue(new Point(200, 200)));
 
         level.getRobot(0).setSpeed(100);
         level.getRobot(0).setPosition(new Point(200, 200));

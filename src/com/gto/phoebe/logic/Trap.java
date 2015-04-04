@@ -10,8 +10,9 @@ public abstract class Trap extends Actor {
         super();
     }
 
-    public Trap(Point position, int size) {
+    public Trap(Point position, int size, int lifeSpan) {
         super(position, size);
+        this.lifeSpan = lifeSpan;
     }
 
     public void cleaning() {
@@ -20,4 +21,6 @@ public abstract class Trap extends Actor {
             isDead = true;
         }
     }
+
+    public abstract void age();
 }

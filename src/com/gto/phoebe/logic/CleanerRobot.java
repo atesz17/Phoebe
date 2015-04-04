@@ -3,6 +3,7 @@ package com.gto.phoebe.logic;
 import com.gto.phoebe.ui.UserInterface;
 
 import java.awt.*;
+import java.awt.geom.Point2D;
 import java.util.List;
 
 public class CleanerRobot extends Robot {
@@ -11,45 +12,59 @@ public class CleanerRobot extends Robot {
     private static int SPEED = 5;
     private static int id = 0;
 
-    private Point target = null;
+    private Trap target = null;
 
-    public CleanerRobot(Point position, UserInterface userInterface) {
-        super(position, SIZE, "cleaner_robot_" + id++, userInterface);
+    public CleanerRobot(Point position, Level level, UserInterface userInterface) {
+        super(position, SIZE, "cleaner_robot_" + id++, level, userInterface);
         this.speed = SPEED;
     }
 
     @Override
     public void jump() {
-        //TODO ugras a target iranyaba
-        //megnezi, h. hova erkezne, ha nem halal, ugrik, ha halal, elfordul jobbra 90 fokot, es ujra
+        speed = SPEED;
+        Point2D targetPosition = new Point2D.Double(target.position.x, target.position.y);
+        if(position.distance(targetPosition) < target.getSize()){
+            return;
+        }
+
+        Point newPosition = null;
+        for(int i = 0; i < 6; i++){
+            newPosition = translate(speed, getAngle() + i * 60);
+            if(level.isValidField(newPosition)){
+                break;
+            }
+        }
+        position = newPosition;
     }
 
     @Override
     public void die() {
         isDead = true;
-        //TODO olajfoltot hagy
+        level.addTrapToLevel(new Oil(position));
     }
 
     @Override
-    public void turn(Level level) {
+    public void turn() {
         if (target == null) {
-            getTarget(level);
+            getTarget();
         }
         jump();
 
-        //TODO ez nem az igazi
         level.checkCollisionOnRobot(this);
 
         cleanUp(level.getTrapsCollidingWithRobot(this));
     }
 
-    private void getTarget(Level level) {
+    private void getTarget() {
         List<Trap> traps = level.getTraps();
-        Point min = traps.get(0).getPosition();
+        Trap min = traps.get(0);
 
         for (Trap trap : traps) {
-            if (position.distance(trap.getPosition()) < position.distance(min)) {
-                min = trap.getPosition();
+            if(trap.equals(target)){
+                continue;
+            }
+            if (position.distance(trap.getPosition()) < position.distance(min.getPosition())) {
+                min = trap;
             }
         }
         target = min;
@@ -62,22 +77,22 @@ public class CleanerRobot extends Robot {
     }
 
     @Override
-    public void collideWith(TrapperRobot robot) {
+    public void steppedOnBy(TrapperRobot robot) {
         die();
     }
 
     @Override
-    public void collideWith(CleanerRobot robot) {
-
+    public void steppedOnBy(CleanerRobot robot) {
+        robot.changeTarget();
     }
 
     public void changeTarget() {
-        //TODO ...
+        getTarget();
     }
 
     @Override
     public void collideWith(Actor actor) {
-        actor.collideWith(this);
+        actor.steppedOnBy(this);
     }
 
 }

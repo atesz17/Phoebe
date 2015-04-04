@@ -12,8 +12,8 @@ public class TrapperRobot extends Robot {
 
     protected TrapInventory trapInventory = new TrapInventory();
 
-    public TrapperRobot(Point position, String name, UserInterface userInterface) {
-        super(position, SIZE, name, userInterface);
+    public TrapperRobot(Point position, String name, Level level, UserInterface userInterface) {
+        super(position, SIZE, name, level, userInterface);
     }
 
     public void jump() {
@@ -35,17 +35,7 @@ public class TrapperRobot extends Robot {
         int newSpeed = speed + movement.speedChange;
         double newAngle = getAngle() + movement.angleChange;
 
-        int newX = (int) Math.round(newSpeed * Math.cos(newAngle * Math.PI / 180));
-        int newY = (int) Math.round(newSpeed * Math.sin(newAngle * Math.PI / 180));
-
-        return new Point(position.x + newX, position.y + newY);
-    }
-
-    private double getAngle() {
-        int a = Math.abs(direction.y - position.y);
-        int b = Math.abs(direction.x - position.x);
-        double c = Math.sqrt(a * a + b * b);
-        return Math.asin(a / c) * 180 / Math.PI;
+        return translate(newSpeed, newAngle);
     }
 
     public void die()   {
@@ -54,13 +44,12 @@ public class TrapperRobot extends Robot {
     }
 
     @Override
-    public void turn(Level level) {
+    public void turn() {
         Point previousPosition = position;
         jump();
 
         level.checkRobotHasCrossedStartLine(this, previousPosition);
 
-        //TODO ez nem az igazi
         level.checkCollisionOnRobot(this);
 
         plantTrap(level);
@@ -89,7 +78,7 @@ public class TrapperRobot extends Robot {
 
 
     @Override
-    public void collideWith(TrapperRobot robot) {
+    public void steppedOnBy(TrapperRobot robot) {
         int newSpeed = (speed + robot.getSpeed()) / 2;
         if (speed > robot.getSpeed()) {
             speed = newSpeed;
@@ -99,13 +88,13 @@ public class TrapperRobot extends Robot {
     }
 
     @Override
-    public void collideWith(CleanerRobot robot) {
+    public void steppedOnBy(CleanerRobot robot) {
         robot.changeTarget();
     }
 
     @Override
     public void collideWith(Actor actor) {
-        actor.collideWith(this);
+        actor.steppedOnBy(this);
     }
 
     public Oil dropOil() {
