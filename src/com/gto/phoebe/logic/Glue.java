@@ -30,7 +30,7 @@ public class Glue extends Trap {
         int newSpeed = Math.round(robot.getSpeed() / 2.0f);
         robot.setSpeed(newSpeed);
         if(0 == --lifeSpan){
-            isDead = true;
+            die();
         }
     }
 }

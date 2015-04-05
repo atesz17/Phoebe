@@ -19,7 +19,7 @@ public class Oil extends Trap {
     @Override
     public void turn() {
         if(0 == --lifeSpan){
-            isDead = true;
+            die();
         }
     }
 
