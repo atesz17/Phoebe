@@ -91,8 +91,8 @@ public class CleanerRobot extends Robot {
     }
 
     @Override
-    public void collideWith(Actor actor) {
-        actor.steppedOnBy(this);
+    public void collideWith(Robot robot) {
+        robot.steppedOnBy(this);
     }
 
 }

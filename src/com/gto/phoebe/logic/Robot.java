@@ -13,15 +13,13 @@ public abstract class Robot extends Actor {
     protected boolean isDead = false;
     protected UserInterface userInterface;
     protected Level level;
-    protected String name = "";
 
     public Robot() {
         super();
     }
 
     public Robot(Point position, int size, String name, Level level, UserInterface userInterface) {
-        super(position, size);
-        this.name = name;
+        super(position, name, size);
         this.level = level;
         setDirection(new Point(position.x, position.y + 1));
         this.userInterface = userInterface;
@@ -77,7 +75,10 @@ public abstract class Robot extends Actor {
         return isDead;
     }
 
-    public abstract void turn();
+    public abstract void steppedOnBy(TrapperRobot robot);
 
-    public abstract void collideWith(Actor actor);
+    public abstract void steppedOnBy(CleanerRobot robot);
+
+    public abstract void collideWith(Robot robot);
+
 }

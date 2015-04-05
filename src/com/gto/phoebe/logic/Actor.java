@@ -7,20 +7,20 @@ public abstract class Actor {
     protected Point position;
     protected int size;
     protected boolean isDead;
+    protected String name = "";
 
     public Actor() {
         this.position = new Point(0, 0);
         this.size = 0;
     }
 
-    public Actor(Point position, int size) {
+    public Actor(Point position, String name, int size) {
         this.position = position;
+        this.name = name;
         this.size = size;
     }
 
-    public abstract void steppedOnBy(TrapperRobot robot);
-
-    public abstract void steppedOnBy(CleanerRobot robot);
+    public abstract void turn();
 
     public Point getPosition() {
         return this.position;

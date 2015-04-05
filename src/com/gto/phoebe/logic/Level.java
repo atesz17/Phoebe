@@ -45,16 +45,12 @@ public class Level {
                 userInterface.print("Robot " + (robots.indexOf(robot) + 1) + ": ");
                 robot.turn();
             }
-            ageTraps();
+            for(Trap trap : traps){
+                trap.turn();
+            }
             remainingTurns--;
         }
         spawnCleaners();
-    }
-
-    private void ageTraps() {
-        for(Trap trap : traps){
-            trap.age();
-        }
     }
 
     private void spawnCleaners() {
@@ -113,7 +109,7 @@ public class Level {
 
     private void checkCollisionWithTraps(Robot robot) {
         for (Trap trap : getTrapsCollidingWithRobot(robot)) {
-            robot.collideWith(trap);
+            trap.effect(robot);
         }
     }
 

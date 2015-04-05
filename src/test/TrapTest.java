@@ -37,8 +37,8 @@ public class TrapTest {
         robot.jump();
         robot.jump();
 
-        Actor glue = new Glue(new Point(100, 100));
-        glue.steppedOnBy(robot);
+        Glue glue = new Glue(new Point(100, 100));
+        glue.effect(robot);
 
         Assert.assertEquals(2, robot.getSpeed());
     }
@@ -47,8 +47,8 @@ public class TrapTest {
     public void oilTest() {
         TrapperRobot robot = new TrapperRobot(new Point(100, 100), "Bela", level, userInterface);
 
-        Actor oil = new Oil(new Point(100, 100));
-        oil.steppedOnBy(robot);
+        Oil oil = new Oil(new Point(100, 100));
+        oil.effect(robot);
 
         Assert.assertEquals(false, robot.getSpeedChangeEnabled());
     }
@@ -63,11 +63,11 @@ public class TrapTest {
         userInterface.setMovement(movement);
         robot.jump();
 
-        Actor glue = new Glue(new Point(100, 100));
-        glue.steppedOnBy(robot);
-        glue.steppedOnBy(robot);
-        glue.steppedOnBy(robot);
-        glue.steppedOnBy(robot);
+        Glue glue = new Glue(new Point(100, 100));
+        glue.effect(robot);
+        glue.effect(robot);
+        glue.effect(robot);
+        glue.effect(robot);
 
         Assert.assertTrue(glue.isDead());
     }
@@ -76,7 +76,7 @@ public class TrapTest {
 
         Trap oil = new Oil(new Point(100, 100));
         for(int i = 0; i < 10; i++){
-            oil.age();
+            oil.turn();
         }
 
         Assert.assertTrue(oil.isDead());
