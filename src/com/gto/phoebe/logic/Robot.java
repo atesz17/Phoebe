@@ -43,8 +43,6 @@ public abstract class Robot extends Actor {
 
     abstract public void jump();
 
-    abstract public void die();
-
     public boolean getSpeedChangeEnabled() {
         return speedChangeEnabled;
     }
@@ -71,10 +69,6 @@ public abstract class Robot extends Actor {
 
     public double getTotalDistanceTraveled() {
         return totalDistanceTraveled;
-    }
-
-    public boolean isDead() {
-        return isDead;
     }
 
     public abstract void turn();

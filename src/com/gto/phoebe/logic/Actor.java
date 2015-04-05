@@ -41,4 +41,8 @@ public abstract class Actor {
     public boolean isDead() {
         return isDead;
     }
+
+    public void die() {
+        isDead = true;
+    }
 }

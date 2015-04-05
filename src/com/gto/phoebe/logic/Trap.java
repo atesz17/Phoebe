@@ -18,7 +18,7 @@ public abstract class Trap extends Actor {
     public void cleaning() {
         cleaningTime--;
         if (cleaningTime == 0) {
-            isDead = true;
+            die();
         }
     }
 

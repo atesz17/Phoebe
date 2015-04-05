@@ -18,7 +18,7 @@ public class Oil extends Trap {
     @Override
     public void age() {
         if(0 == --lifeSpan){
-            isDead = true;
+            die();
         }
     }
 

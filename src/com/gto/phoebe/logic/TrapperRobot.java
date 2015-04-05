@@ -38,6 +38,7 @@ public class TrapperRobot extends Robot {
         return translate(newSpeed, newAngle);
     }
 
+    @Override
     public void die()   {
         totalDistanceTraveled = 0D;
         isDead = true;
