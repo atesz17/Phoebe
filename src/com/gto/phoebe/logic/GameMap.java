@@ -13,7 +13,7 @@ import java.util.*;
 import java.util.List;
 
 public class GameMap {
-    private Set<Point> map = new HashSet<Point>();
+    private List<Point> map = new ArrayList<Point>();
     private int width;
     private int height;
     private Line2D startLine;
@@ -23,7 +23,7 @@ public class GameMap {
     }
 
     private void readMap(InputStream inputStream) throws PhoebeException {
-        map = new HashSet<Point>();
+        map = new ArrayList<Point>();
         BufferedImage image = null;
         try {
             image = ImageIO.read(inputStream);
@@ -63,15 +63,8 @@ public class GameMap {
     }
 
     public Point getValidField() {
-        Point ret = null;
-        boolean valid = false;
-        while (!valid) {
-            int randomX = (int) (width * Math.random());
-            int randomY = (int) (height * Math.random());
-            ret = new Point(randomX, randomY);
-            valid = isValidField(ret);
-        }
-        return ret;
+        int random = (int)(Math.random() * map.size());
+        return map.get(random);
     }
 
     public boolean isValidField(Point point) {
