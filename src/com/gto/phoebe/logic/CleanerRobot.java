@@ -14,6 +14,11 @@ public class CleanerRobot extends Robot {
 
     private Trap target = null;
 
+    public CleanerRobot(Point position, String name, Level level, UserInterface userInterface) {
+        super(position, SIZE, name, level, userInterface);
+        this.speed = SPEED;
+    }
+
     public CleanerRobot(Point position, Level level, UserInterface userInterface) {
         super(position, SIZE, "cleaner_robot_" + id++, level, userInterface);
         this.speed = SPEED;
@@ -48,7 +53,9 @@ public class CleanerRobot extends Robot {
         if (target == null) {
             getTarget();
         }
-        jump();
+        if(target != null) {
+            jump();
+        }
 
         level.checkCollisionOnRobot(this);
 
@@ -57,6 +64,9 @@ public class CleanerRobot extends Robot {
 
     private void getTarget() {
         List<Trap> traps = level.getTraps();
+        if(traps.isEmpty()){
+            return;
+        }
         Trap min = traps.get(0);
 
         for (Trap trap : traps) {
@@ -93,6 +103,17 @@ public class CleanerRobot extends Robot {
     @Override
     public void collideWith(Robot robot) {
         robot.steppedOnBy(this);
+    }
+
+    @Override
+    public String getInfo(){
+        String ret = "";
+        ret += "Tipusa: KisRobot \n";
+        ret += "Pozicioja: (" + position.x + "," + position.y + ") \n";
+        ret += "Sebesseg: " + speed + "\n";
+        ret += "Irany: (" + direction.x + "," + direction.y + ") \n";
+
+        return ret;
     }
 
 }

@@ -8,15 +8,16 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 public class Level {
 
-    private GameMap gameMap;
-    private int remainingTurns;
+    public GameMap gameMap;
+    public int remainingTurns;
     private UserInterface userInterface;
 
-    private List<Robot> robots = new ArrayList<Robot>();
-    private List<Trap> traps = new ArrayList<Trap>();
+    public List<Robot> robots = new ArrayList<Robot>();
+    public List<Trap> traps = new ArrayList<Trap>();
 
     private int playersAlive = 0;
 
@@ -24,8 +25,6 @@ public class Level {
         gameMap = new GameMap(map);
         this.remainingTurns = remainingTurns;
         this.userInterface = userInterface;
-        addPlayer(new TrapperRobot(new Point(100, 100), "Bela", this, userInterface));
-        addPlayer(new TrapperRobot(new Point(100, 110), "Ubul", this, userInterface));
     }
 
     public void startGame() {
@@ -36,46 +35,41 @@ public class Level {
 
     private void gameCycle() {
         while (remainingTurns > 0) {
-            for (Robot robot : robots) {
-                removeDead();
-                if (!isAnybodyAlive()) {
-                    remainingTurns = 0;
-                    break;
-                }
-                userInterface.print("Robot " + (robots.indexOf(robot) + 1) + ": ");
-                robot.turn();
-            }
-            for(Trap trap : traps){
-                trap.turn();
-            }
-            remainingTurns--;
-            spawnCleaners();
+            turn();
         }
+    }
+
+    public void turn() {
+        Iterator robotIterator = robots.iterator();
+        while (robotIterator.hasNext()){
+            Robot robot = (Robot)robotIterator.next();
+            if (!isAnybodyAlive()) {
+                remainingTurns = 0;
+                break;
+            }
+            userInterface.print("Robot " + (robots.indexOf(robot) + 1) + ": ");
+            robot.turn();
+            if(robot.isDead){
+                robotIterator.remove();
+                playersAlive--;
+            }
+        }
+        Iterator trapIterator = traps.iterator();
+        while (trapIterator.hasNext()){
+            Trap trap = (Trap)trapIterator.next();
+            trap.turn();
+            if(trap.isDead){
+                trapIterator.remove();
+            }
+        }
+        remainingTurns--;
+        spawnCleaners();
     }
 
     private void spawnCleaners() {
         if (5 * Math.random() < 1) {
             for (int i = 0; i < 4 * Math.random(); i++) {
                 addCleaner();
-            }
-        }
-    }
-
-    private void removeDead() {
-
-        Iterator<Trap> trapIterator = traps.iterator();
-        while (trapIterator.hasNext()) {
-            Trap trap = trapIterator.next();
-            if (trap.isDead) {
-                trapIterator.remove();
-            }
-        }
-
-        Iterator<Robot> robotIterator = robots.iterator();
-        while (robotIterator.hasNext()) {
-            Robot robot = robotIterator.next();
-            if (robot.isDead) {
-                robotIterator.remove();
             }
         }
     }

@@ -7,7 +7,7 @@ public abstract class Actor {
     protected Point position;
     protected int size;
     protected boolean isDead;
-    protected String name = "";
+    public String name = "";
 
     public Actor() {
         this.position = new Point(0, 0);
@@ -45,4 +45,6 @@ public abstract class Actor {
     public void die() {
         isDead = true;
     }
+
+    public abstract String getInfo();
 }

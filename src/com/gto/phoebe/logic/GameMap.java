@@ -14,8 +14,8 @@ import java.util.List;
 
 public class GameMap {
     private List<Point> map = new ArrayList<Point>();
-    private int width;
-    private int height;
+    public int width;
+    public int height;
     private Line2D startLine;
 
     public GameMap(InputStream inputStream) throws PhoebeException {

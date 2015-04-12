@@ -16,6 +16,10 @@ public class Oil extends Trap {
         super(position, "OIL_" + ++NUM_OILS, SIZE, START_LIFESPAN);
     }
 
+    public Oil(Point position, String name) {
+        super(position, name, SIZE, START_LIFESPAN);
+    }
+
     @Override
     public void turn() {
         if(0 == --lifeSpan){
@@ -26,5 +30,15 @@ public class Oil extends Trap {
     @Override
     public void effect(Robot robot) {
         robot.setSpeedChangeEnabled(false);
+    }
+
+    @Override
+    public String getInfo(){
+        String ret = "";
+        ret += "Tipusa: Olaj \n";
+        ret += "Pozicioja: (" + position.x + "," + position.y + ") \n";
+        ret += "Ennyi ido mulva szarad fel: " + lifeSpan + "\n";
+
+        return ret;
     }
 }

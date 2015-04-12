@@ -2,8 +2,8 @@ package com.gto.phoebe.logic;
 
 public class TrapInventory {
 
-    private int oilCount;
-    private int glueCount;
+    public int oilCount;
+    public int glueCount;
 
     public TrapInventory() {
         oilCount = 0;
