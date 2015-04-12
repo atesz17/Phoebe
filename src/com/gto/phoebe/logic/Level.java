@@ -49,8 +49,8 @@ public class Level {
                 trap.turn();
             }
             remainingTurns--;
+            spawnCleaners();
         }
-        spawnCleaners();
     }
 
     private void spawnCleaners() {
