@@ -6,8 +6,8 @@ public class TrapInventory {
     public int glueCount;
 
     public TrapInventory() {
-        oilCount = 0;
-        glueCount = 0;
+        oilCount = 1;
+        glueCount = 1;
     }
 
     public TrapInventory(int oilCount, int glueCount) throws Exception {
