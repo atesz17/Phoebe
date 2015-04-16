@@ -7,9 +7,12 @@ public class Oil extends Trap {
     private static final int START_LIFESPAN = 10;
     private static int SIZE = 10;
     private static int NUM_OILS = 0;
+    private static int UNIQUE_ID = 1;
 
     public Oil() {
         super();
+        name = "OIL_" + UNIQUE_ID;
+        UNIQUE_ID++;
     }
 
     public Oil(Point position) {

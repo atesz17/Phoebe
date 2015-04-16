@@ -106,10 +106,15 @@ public class PrototypeInterface implements UserInterface {
 
         String name = commandParts[1];
         for(TrapperRobot trapperRobot : players) {
-            if(name.equals(trapperRobot.name)){
+            if(name.equals(trapperRobot.name)) {
+                int prevTrapCount = level.traps.size();
                 trapperRobot.plantTrap();
-                String newName = level.traps.get(level.traps.size() - 1).name;
-                print("Uj " + trapType.toString() + " ezen a pozicion: (" + trapperRobot.getPosition().x + "," + trapperRobot.getPosition().y + "). Nev: " + newName);
+                if (prevTrapCount != level.traps.size()) {
+                    String newName = level.traps.get(level.traps.size() - 1).name;
+                    print("Uj " + trapType.toString() + " ezen a pozicion: (" + trapperRobot.getPosition().x + "," + trapperRobot.getPosition().y + "). Nev: " + newName);
+                } else  {
+                    System.out.println("0 db ilyen tipusu csapdaja van jelenleg a robotnak, nem tud lerakni.");
+                }
             }
         }
         trapToPut = "semmi";

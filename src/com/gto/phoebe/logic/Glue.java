@@ -7,9 +7,12 @@ public class Glue extends Trap {
     private static final int START_LIFESPAN = 4;
     private static int SIZE = 10;
     private static int NUM_GLUES = 0;
+    private static int UNIQUE_ID = 1;
 
     public Glue()    {
         super();
+        name = "GLUE_" + UNIQUE_ID;
+        UNIQUE_ID++;
     }
 
     public Glue(Point position)    {
