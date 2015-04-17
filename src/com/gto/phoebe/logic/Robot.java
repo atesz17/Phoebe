@@ -62,7 +62,7 @@ public abstract class Robot extends Actor {
     }
 
     public void setDirection(Point direction) {
-        this.direction = direction;
+        this.direction = !getSpeedChangeEnabled() ? this.getDirection() : direction;
     }
 
     public double getTotalDistanceTraveled() {

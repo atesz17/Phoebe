@@ -8,7 +8,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 public class Level {
 
@@ -41,6 +40,10 @@ public class Level {
 
     public void turn() {
         Iterator robotIterator = robots.iterator();
+        if(robots.size() == 1)
+        {
+            robots.get(0).turn();
+        }
         while (robotIterator.hasNext()){
             Robot robot = (Robot)robotIterator.next();
             if (!isAnybodyAlive()) {

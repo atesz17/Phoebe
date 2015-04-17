@@ -8,7 +8,10 @@ import com.gto.phoebe.ui.UserInterface;
 import com.gto.phoebe.util.PhoebeException;
 
 import java.awt.*;
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
