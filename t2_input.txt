@@ -1,0 +1,6 @@
+PalyaBetolt 1
+ActorLetrehozas Ter Robot 0 20
+ActorInfo Ter
+RobotCsapdaLerakas Ter Ragacs
+Kor
+OsszesActorListazas
