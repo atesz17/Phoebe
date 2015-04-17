@@ -323,7 +323,10 @@ public class PrototypeInterface implements UserInterface {
 
         try {
             PrintWriter writer = new PrintWriter(commandParts[1]);
-            writer.println(output);
+            String[] lines = output.split("\n");
+            for (String line : lines) {
+                writer.println(line);
+            }
             writer.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();

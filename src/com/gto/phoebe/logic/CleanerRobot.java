@@ -111,7 +111,7 @@ public class CleanerRobot extends Robot {
         ret += "Tipusa: KisRobot \n";
         ret += "Pozicioja: (" + position.x + "," + position.y + ") \n";
         ret += "Sebesseg: " + speed + "\n";
-        ret += "Irany: (" + direction.x + "," + direction.y + ") \n";
+        ret += "Irany: (" + direction.x + "," + direction.y + ")";
 
         return ret;
     }

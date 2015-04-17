@@ -40,7 +40,7 @@ public class Oil extends Trap {
         String ret = "";
         ret += "Tipusa: Olaj \n";
         ret += "Pozicioja: (" + position.x + "," + position.y + ") \n";
-        ret += "Ennyi ido mulva szarad fel: " + lifeSpan + "\n";
+        ret += "Ennyi ido mulva szarad fel: " + lifeSpan;
 
         return ret;
     }
