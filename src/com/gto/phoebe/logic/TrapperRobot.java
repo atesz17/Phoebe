@@ -24,7 +24,7 @@ public class TrapperRobot extends Robot {
     private void jump(Movement movement) {
         Point newPosition = calculatePosition(movement);
         speed += movement.speedChange;
- //       direction = new Point((newPosition.x - getPosition().x) + newPosition.x, (newPosition.y - getPosition().y) + newPosition.y);
+        direction = new Point((newPosition.x - getPosition().x) + newPosition.x, (newPosition.y - getPosition().y) + newPosition.y);
 
         totalDistanceTraveled += newPosition.distance(position);
         setPosition(newPosition);
