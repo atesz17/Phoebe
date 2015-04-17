@@ -99,11 +99,11 @@ public class TrapperRobot extends Robot {
     }
 
     public Oil dropOil() {
-        return trapInventory.getOil();
+        return trapInventory.getOil(position);
     }
 
     public Glue dropGlue() {
-        return trapInventory.getGlue();
+        return trapInventory.getGlue(position);
     }
 
     public void reloadTraps() {
