@@ -42,7 +42,7 @@ public class Glue extends Trap {
         String ret = "";
         ret += "Tipusa: Ragacs \n";
         ret += "Pozicioja: (" + position.x + "," + position.y + ") \n";
-        ret += "Ennyi ido robot haladt at rajta: " + (START_LIFESPAN - lifeSpan) + "\n";
+        ret += "Ennyi ido robot haladt at rajta: " + (START_LIFESPAN - lifeSpan);
 
         return ret;
     }
