@@ -3,6 +3,7 @@ package test;
 import com.gto.phoebe.domain.Movement;
 import com.gto.phoebe.logic.Glue;
 import com.gto.phoebe.logic.Level;
+import com.gto.phoebe.logic.TrapperRobot;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,6 +30,8 @@ public class LevelTest {
         userInterface.setMovement(movement);
 
         Level level = new Level(100, map, userInterface);
+        level.addPlayer(new TrapperRobot(new Point(100, 100), "Bela", level, userInterface));
+        level.addPlayer(new TrapperRobot(new Point(200, 200), "Ubul", level, userInterface));
 
         level.getRobot(0).setSpeed(10);
         level.getRobot(0).jump();
@@ -42,6 +45,8 @@ public class LevelTest {
     @Test
     public void checkCollisionOnRobotTest() throws Exception {
         Level level = new Level(100, map, userInterface);
+        level.addPlayer(new TrapperRobot(new Point(100, 100), "Bela", level, userInterface));
+
         level.addTrapToLevel(new Glue(new Point(200, 200)));
 
         level.getRobot(0).setSpeed(100);
