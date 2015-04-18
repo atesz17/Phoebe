@@ -1,6 +1,6 @@
 PalyaBetolt 4
 ActorLetrehozas Ter KisRobot 0 0
-ActorLetrehozas Oil Olaj 0 20
+ActorLetrehozas Oil Olaj 0 40
 ActorLetrehozas Glue Ragacs 0 15
 ActorInfo Glue
 ActorInfo Oil
@@ -10,7 +10,7 @@ ActorInfo Glue
 ActorInfo Oil
 Kor
 ActorInfo Oil
-RobotUjPozicio Ter 0 20
+RobotUjPozicio Ter 0 40
 Kor
 ActorInfo Oil
 Kor
