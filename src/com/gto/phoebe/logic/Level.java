@@ -40,10 +40,6 @@ public class Level {
 
     public void turn() {
         Iterator robotIterator = robots.iterator();
-        if(robots.size() == 1)
-        {
-            robots.get(0).turn();
-        }
         while (robotIterator.hasNext()){
             Robot robot = (Robot)robotIterator.next();
             if (!isAnybodyAlive()) {

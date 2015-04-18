@@ -271,6 +271,9 @@ public class PrototypeInterface implements UserInterface {
             level.traps.add(new Oil(new Point(x, y), name));
         } else if("ragacs".equals(robotType)){
             level.traps.add(new Glue(new Point(x, y), name));
+        } else {
+            print("Ilyen tipusu actor nem letezik.");
+            return;
         }
 
         print(commandParts[2] + " letrehozva ezen a pozicion: (" + x + "," + y + "). Nev: " + name);
