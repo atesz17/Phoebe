@@ -3,7 +3,7 @@ ActorLetrehozas Ter Robot 0 0
 ActorLetrehozas Cle KisRobot 0 10
 ActorInfo Ter
 ActorInfo Cle
-RobotUjpozicio Cle 0 10
+RobotUjpozicio Cle 0 0
 Kor
 OsszesActorListazas
 Kor

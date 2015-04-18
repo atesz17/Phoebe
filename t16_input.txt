@@ -3,18 +3,18 @@ ActorLetrehozas Ter1 Robot 0 0
 ActorLetrehozas Ter2 Robot 0 1
 ActorLetrehozas Glue Ragacs 0 15
 ActorInfo Glue
-RoborUjPozicio Ter1 0 15
+RobotUjPozicio Ter1 0 15
 Kor
 ActorInfo Glue
-RoborUjPozicio Ter1 0 16
-RoborUjPozicio Ter2 0 15
+RobotUjPozicio Ter1 0 16
+RobotUjPozicio Ter2 0 15
 Kor
-Actor Glue
-RoborUjPozicio Ter1 0 15
-RoborUjPozicio Ter2 0 17
+ActorInfo Glue
+RobotUjPozicio Ter1 0 15
+RobotUjPozicio Ter2 0 17
 Kor
-AcotrInfo Glue
-RoborUjPozicio Ter1 0 18
-RoborUjPozicio Ter2 0 15
+ActorInfo Glue
+RobotUjPozicio Ter1 0 18
+RobotUjPozicio Ter2 0 15
 Kor
 OsszesActorListazas
