@@ -45,7 +45,6 @@ public class Level {
         Iterator robotIterator = robots.iterator();
         while (robotIterator.hasNext()){
             Robot robot = (Robot)robotIterator.next();
-            userInterface.print("Robot " + (robots.indexOf(robot) + 1) + ": ");
             robot.turn();
             if(robot.isDead){
                 robotIterator.remove();
