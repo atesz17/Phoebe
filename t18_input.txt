@@ -1,17 +1,17 @@
 PalyaBetolt 4
-ActorLetrehozas Ter Robot 0 0
+ActorLetrehozas Ter KisRobot 0 0
 ActorLetrehozas Oil Olaj 0 20
 ActorLetrehozas Glue Ragacs 0 15
 ActorInfo Glue
 ActorInfo Oil
-RoborUjPozicio Ter 0 15
+RobotUjPozicio Ter 0 15
 Kor
 ActorInfo Glue
 ActorInfo Oil
 Kor
 ActorInfo Oil
-RoborUjPozicio Ter 0 20
+RobotUjPozicio Ter 0 20
 Kor
 ActorInfo Oil
 Kor
-OsszesActorListazasa
+OsszesActorListazas
