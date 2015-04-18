@@ -21,3 +21,4 @@ Sebesseg: 20
 Irany: (640,80)
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
+
