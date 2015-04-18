@@ -1,19 +1,20 @@
 Palya 2 korrel inicializalasra kerult.
 Robot letrehozva ezen a pozicion: (0,0). Nev: Ter
 KisRobot letrehozva ezen a pozicion: (0,10). Nev: Cle
-Tipusa: Robot 
-Pozicioja: (0,0) 
+Tipusa: Robot
+Pozicioja: (0,0)
 Megtett tavolsag: 0.0
 Sebesseg: 0
-Irany: (0,1) 
+Irany: (0,1)
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
-Tipusa: KisRobot 
-Pozicioja: (0,10) 
+Sebességmódosítás: true
+Tipusa: KisRobot
+Pozicioja: (0,10)
 Sebesseg: 5
 Irany: (0,11)
 Ter pozicioja: (0,10)
 Egy kor eltelt.
+OIL_1
 Ter
-Cle
 Egy kor eltelt.
