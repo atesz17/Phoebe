@@ -34,7 +34,9 @@ public class Main {
                     }
                 }
 
-                if ((compLine = compBr.readLine()) != null) {
+                String newLine = null;
+                if (((newLine = compBr.readLine()) != null) && (identical == true)) {
+                    compLine = newLine;
                     identical = false;
                     lineNumber++;
                 }
