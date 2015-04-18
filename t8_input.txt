@@ -1,7 +1,8 @@
 PalyaBetolt 2
-ActorLetrehozas Ter Robot 0 0
+ActorLetrehozas Ter Robot 600 80
 ActorInfo Ter 
 Kor
-RobotUjPozicio Ter 40 0
+RobotSebesseg Ter 20
+RobotIrany Ter 620 80
 Kor
 ActorInfo Ter
