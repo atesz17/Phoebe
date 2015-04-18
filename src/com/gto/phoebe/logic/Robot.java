@@ -54,7 +54,6 @@ public abstract class Robot extends Actor {
     }
 
     public void setSpeed(int newSpeed) {
-        if(speedChangeEnabled)
              speed = newSpeed;
     }
 

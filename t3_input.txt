@@ -1,10 +1,9 @@
 PalyaBetolt 2
 ActorLetrehozas Ter Robot 0 0
 ActorLetrehozas Ol Olaj 0 20
+ActorInfo Ter
 RobotUjPozicio Ter 0 20
 Kor
 ActorInfo Ter
 Kor
-RobotSebesseg Ter 4
-ActorInfo Ter
 OsszesActorListazas

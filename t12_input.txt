@@ -1,8 +1,10 @@
 PalyaBetolt 2
 ActorLetrehozas Ter Robot 0 0
-ActorLetrehozas Rob Robot 0 20
-RobotUjPozicio Ter 0 30
-RobotUjPozicio Rob 0 40
+ActorLetrehozas Rob Robot 0 2
+RobotSebesseg Ter 2
+RobotSebesseg Rob 1
+RobotIrany Ter 0 3
+RobotIrany Rob 0 4
 Kor
 ActorInfo Ter
 ActorInfo Rob

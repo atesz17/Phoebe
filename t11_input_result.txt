@@ -2,8 +2,6 @@ Palya 1 korrel inicializalasra kerult.
 Robot letrehozva ezen a pozicion: (0,0). Nev: Ter
 Robot letrehozva ezen a pozicion: (0,20). Nev: Rob
 Hatralevo korok szama: 1
-Robot 1: 
-Robot 2:
 Egy kor eltelt.
 Ter
 Rob

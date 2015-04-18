@@ -7,8 +7,8 @@ Sebesseg: 0
 Irany: (0,21) 
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
+Sebességmódosítás: true
 Uj GLUE ezen a pozicion: (0,20). Nev: GLUE_1
-Robot 1:
 Egy kor eltelt.
 GLUE_1
 Ter

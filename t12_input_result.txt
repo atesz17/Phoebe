@@ -1,16 +1,17 @@
 Palya 2 korrel inicializalasra kerult.
 Robot letrehozva ezen a pozicion: (0,0). Nev: Ter
 Robot letrehozva ezen a pozicion: (0,20). Nev: Rob
-Ter pozicioja: (0,30)
-Rob pozicioja: (0,40)
-Robot 1: 
+Ter sebessege: 15
+Rob sebessege: 10
+Ter iranya: (0,30)
+Rob iranya: (0,40)
 Egy kor eltelt.
-Tipusa: Robot 
-Pozicioja: (0,40) 
-Megtett tavolsag: 0.0
-Sebesseg: 0
-Irany: (0,21) 
+Tipusa: Robot
+Pozicioja: (0,15)
+Megtett tavolsag: 15.0
+Sebesseg: 12
+Irany: (0,30)
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
 Egy kor eltelt.
-Rob
+Ter

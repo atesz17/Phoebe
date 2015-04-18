@@ -7,16 +7,16 @@ Sebesseg: 0
 Irany: (600,81) 
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
-Robot 1: 
+Sebességmódosítás: true
 Egy kor eltelt.
 Ter sebessege: 20
 Ter iranya: (620,80)
-Robot 1: 
 Egy kor eltelt.
-Tipusa: Robot 
-Pozicioja: (620,80) 
+Tipusa: Robot
+Pozicioja: (620,80)
 Megtett tavolsag: 20.0
 Sebesseg: 20
-Irany: (640,80) 
+Irany: (640,80)
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
+Sebességmódosítás: true

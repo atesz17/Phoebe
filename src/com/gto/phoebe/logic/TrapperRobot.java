@@ -119,7 +119,8 @@ public class TrapperRobot extends Robot {
         ret += "Sebesseg: " + speed + "\n";
         ret += "Irany: (" + direction.x + "," + direction.y + ") \n";
         ret += "Olaj csapdak szama: " + trapInventory.oilCount + "\n";
-        ret += "Ragacs csapdak szama: " + trapInventory.glueCount;
+        ret += "Ragacs csapdak szama: " + trapInventory.glueCount + "\n";
+        ret += "Sebességmódosítás: " + this.speedChangeEnabled;
 
         return ret;
     }

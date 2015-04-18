@@ -9,8 +9,8 @@ Sebesseg: 2
 Irany: (0,1) 
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
+Sebességmódosítás: true
 Ter pozicioja: (0,20)
-Robot 1:
 Egy kor eltelt.
 Tipusa: Robot
 Pozicioja: (0,22)
@@ -19,7 +19,7 @@ Sebesseg: 1
 Irany: (0,24)
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
-Robot 1:
+Sebességmódosítás: true
 Egy kor eltelt.
 Rag
 Ter

@@ -1,11 +1,9 @@
 Palya 3 korrel inicializalasra kerult.
 Robot letrehozva ezen a pozicion: (580,80). Nev: Ter
 Uj OIL ezen a pozicion: (580,80). Nev: OIL_1
-Robot 1:
 Egy kor eltelt.
 Ter sebessege: 20
 Ter iranya: (600,80)
-Robot 1:
 Egy kor eltelt.
 Uj GLUE ezen a pozicion: (600,80). Nev: GLUE_1
 Tipusa: Robot
@@ -15,9 +13,7 @@ Sebesseg: 20
 Irany: (620,80)
 Olaj csapdak szama: 0
 Ragacs csapdak szama: 0
-Robot 1:
-Robot 2:
-Robot 3:
+Sebességmódosítás: true
 Egy kor eltelt.
 Tipusa: Robot
 Pozicioja: (620,80)
@@ -26,4 +22,5 @@ Sebesseg: 20
 Irany: (640,80)
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
+Sebességmódosítás: true
 

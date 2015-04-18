@@ -9,3 +9,4 @@ Sebesseg: 0
 Irany: (0,20) 
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
+Sebességmódosítás: true
