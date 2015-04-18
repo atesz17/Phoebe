@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class Main {
+public class Comparer {
 
     public static void main(String[] args)  {
 
