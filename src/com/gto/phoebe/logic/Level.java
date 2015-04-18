@@ -39,13 +39,12 @@ public class Level {
     }
 
     public void turn() {
+        if(remainingTurns == 0){
+            userInterface.print("The game is over.");
+        }
         Iterator robotIterator = robots.iterator();
         while (robotIterator.hasNext()){
             Robot robot = (Robot)robotIterator.next();
-            if (!isAnybodyAlive()) {
-                remainingTurns = 0;
-                break;
-            }
             userInterface.print("Robot " + (robots.indexOf(robot) + 1) + ": ");
             robot.turn();
             if(robot.isDead){
@@ -61,8 +60,8 @@ public class Level {
                 trapIterator.remove();
             }
         }
-        remainingTurns--;
         spawnCleaners();
+        remainingTurns--;
     }
 
     private void spawnCleaners() {
@@ -77,10 +76,6 @@ public class Level {
         if (gameMap.checkRobotHasCrossedStartLine(previousPosition, robot)) {
             robot.reloadTraps();
         }
-    }
-
-    private boolean isAnybodyAlive() {
-        return playersAlive > 1;
     }
 
     public void checkCollisionOnRobot(Robot robot) {
