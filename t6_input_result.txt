@@ -2,5 +2,5 @@ Palya 1 korrel inicializalasra kerult.
 Hatralevo korok szama: 1
 Robot letrehozva ezen a pozicion: (20,20). Nev: Ter
 Ter pozicioja: (20,40)
+Robot 1:
 Egy kor eltelt.
-Ter

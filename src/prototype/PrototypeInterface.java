@@ -213,9 +213,6 @@ public class PrototypeInterface implements UserInterface {
         }
 
         for(Actor actor : level.robots){
-            if(actor.isDead())
-                print("-");
-            else
                 print(actor.name);
         }
     }

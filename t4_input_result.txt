@@ -10,15 +10,16 @@ Irany: (0,1)
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
 Ter pozicioja: (0,20)
+Robot 1:
 Egy kor eltelt.
-Tipusa: Robot 
-Pozicioja: (0,22) 
-Megtett tavolsag: 0.0
+Tipusa: Robot
+Pozicioja: (0,22)
+Megtett tavolsag: 2.0
 Sebesseg: 1
-Irany: (0,24) 
+Irany: (0,24)
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
+Robot 1:
 Egy kor eltelt.
 Rag
 Ter
-cleaner_robot_3
