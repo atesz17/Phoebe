@@ -9,4 +9,4 @@ Kor
 ActorInfo Ter
 ActorInfo Rob
 Kor
-OsszesActorListazas
+PalyaInfo

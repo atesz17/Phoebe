@@ -296,6 +296,8 @@ public class PrototypeInterface implements UserInterface {
 
     private void palyaInfo() {
         print("Hatralevo korok szama: " + level.remainingTurns);
+        if(level.remainingTurns == 0)
+            print("Győztes: " + level.getWinner().name);
     }
 
     private void palyaBetolt(String[] commandParts) {
