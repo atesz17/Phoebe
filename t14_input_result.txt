@@ -1,0 +1,13 @@
+Palya 2 korrel inicializalasra kerult.
+Robot letrehozva ezen a pozicion: (0,0). Nev: Ter
+KisRobot letrehozva ezen a pozicion: (0,10). Nev: Cle
+Ismeretlen parancs: ActorInfoTer
+Tipusa: KisRobot 
+Pozicioja: (0,10) 
+Sebesseg: 5
+Irany: (0,11)
+Cle pozicioja: (0,10)
+Egy kor eltelt.
+Ter
+Cle
+Egy kor eltelt.

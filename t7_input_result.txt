@@ -1,0 +1,23 @@
+Palya 3 korrel inicializalasra kerult.
+Robot letrehozva ezen a pozicion: (0,0). Nev: Ter
+Uj OIL ezen a pozicion: (0,0). Nev: OIL_2
+Egy kor eltelt.
+Ter pozicioja: (20,0)
+Uj GLUE ezen a pozicion: (20,0). Nev: GLUE_2
+Egy kor eltelt.
+Tipusa: Robot 
+Pozicioja: (20,0) 
+Megtett tavolsag: 0.0
+Sebesseg: 0
+Irany: (20,0) 
+Olaj csapdak szama: 0
+Ragacs csapdak szama: 0
+A megadott parameterek szama nem megfelelo. Elvart: 4 kapott: 3
+Egy kor eltelt.
+Tipusa: Robot 
+Pozicioja: (20,0) 
+Megtett tavolsag: 0.0
+Sebesseg: 0
+Irany: (20,0) 
+Olaj csapdak szama: 0
+Ragacs csapdak szama: 0

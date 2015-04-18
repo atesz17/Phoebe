@@ -1,0 +1,13 @@
+Palya 2 korrel inicializalasra kerult.
+KisRobot letrehozva ezen a pozicion: (0,0). Nev: Cle1
+KisRobot letrehozva ezen a pozicion: (0,10). Nev: Cle2
+Tipusa: KisRobot 
+Pozicioja: (0,0) 
+Sebesseg: 5
+Irany: (0,1)
+Tipusa: KisRobot 
+Pozicioja: (0,10) 
+Sebesseg: 5
+Irany: (0,11)
+Cle1 pozicioja: (0,10)
+Egy kor eltelt.

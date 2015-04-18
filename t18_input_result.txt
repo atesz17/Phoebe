@@ -1,0 +1,29 @@
+Palya 4 korrel inicializalasra kerult.
+Robot letrehozva ezen a pozicion: (0,0). Nev: Ter
+Olaj letrehozva ezen a pozicion: (0,20). Nev: Oil
+Ragacs letrehozva ezen a pozicion: (0,15). Nev: Glue
+Tipusa: Ragacs 
+Pozicioja: (0,15) 
+Ennyi ido robot haladt at rajta: 0
+Tipusa: Olaj 
+Pozicioja: (0,20) 
+Ennyi ido mulva szarad fel: 10
+Ismeretlen parancs: RoborUjPozicio
+Egy kor eltelt.
+Tipusa: Ragacs 
+Pozicioja: (0,15) 
+Ennyi ido robot haladt at rajta: 0
+Tipusa: Olaj 
+Pozicioja: (0,20) 
+Ennyi ido mulva szarad fel: 9
+Egy kor eltelt.
+Tipusa: Olaj 
+Pozicioja: (0,20) 
+Ennyi ido mulva szarad fel: 8
+Ismeretlen parancs: RoborUjPozicio
+Egy kor eltelt.
+Tipusa: Olaj 
+Pozicioja: (0,20) 
+Ennyi ido mulva szarad fel: 7
+Egy kor eltelt.
+Ismeretlen parancs: OsszesActorListazasa

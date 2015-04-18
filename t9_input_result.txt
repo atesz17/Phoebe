@@ -1,0 +1,20 @@
+Palya 2 korrel inicializalasra kerult.
+Robot letrehozva ezen a pozicion: (0,0). Nev: Ter
+Uj GLUE ezen a pozicion: (0,0). Nev: GLUE_3
+Egy kor eltelt.
+Tipusa: Robot 
+Pozicioja: (0,0) 
+Megtett tavolsag: 0.0
+Sebesseg: 0
+Irany: (0,0) 
+Olaj csapdak szama: 1
+Ragacs csapdak szama: 0
+Ter pozicioja: (40,0)
+Egy kor eltelt.
+Tipusa: Robot 
+Pozicioja: (40,0) 
+Megtett tavolsag: 0.0
+Sebesseg: 0
+Irany: (40,0) 
+Olaj csapdak szama: 1
+Ragacs csapdak szama: 0

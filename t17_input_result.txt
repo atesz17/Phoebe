@@ -1,0 +1,45 @@
+Palya 10 korrel inicializalasra kerult.
+olaj letrehozva ezen a pozicion: (0,20). Nev: Oil
+Tipusa: Olaj 
+Pozicioja: (0,20) 
+Ennyi ido mulva szarad fel: 10
+Egy kor eltelt.
+Tipusa: Olaj 
+Pozicioja: (0,20) 
+Ennyi ido mulva szarad fel: 9
+Egy kor eltelt.
+Tipusa: Olaj 
+Pozicioja: (0,20) 
+Ennyi ido mulva szarad fel: 8
+Egy kor eltelt.
+Tipusa: Olaj 
+Pozicioja: (0,20) 
+Ennyi ido mulva szarad fel: 7
+Egy kor eltelt.
+Tipusa: Olaj 
+Pozicioja: (0,20) 
+Ennyi ido mulva szarad fel: 6
+Egy kor eltelt.
+Tipusa: Olaj 
+Pozicioja: (0,20) 
+Ennyi ido mulva szarad fel: 5
+Egy kor eltelt.
+Tipusa: Olaj 
+Pozicioja: (0,20) 
+Ennyi ido mulva szarad fel: 4
+Egy kor eltelt.
+Tipusa: Olaj 
+Pozicioja: (0,20) 
+Ennyi ido mulva szarad fel: 3
+Egy kor eltelt.
+Tipusa: Olaj 
+Pozicioja: (0,20) 
+Ennyi ido mulva szarad fel: 2
+Egy kor eltelt.
+Tipusa: Olaj 
+Pozicioja: (0,20) 
+Ennyi ido mulva szarad fel: 1
+Egy kor eltelt.
+cleaner_robot_5
+cleaner_robot_6
+cleaner_robot_7

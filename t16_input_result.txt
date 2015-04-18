@@ -1,0 +1,26 @@
+Palya 4 korrel inicializalasra kerult.
+Robot letrehozva ezen a pozicion: (0,0). Nev: Ter1
+Robot letrehozva ezen a pozicion: (0,1). Nev: Ter2
+Ragacs letrehozva ezen a pozicion: (0,15). Nev: Glue
+Tipusa: Ragacs 
+Pozicioja: (0,15) 
+Ennyi ido robot haladt at rajta: 0
+Ismeretlen parancs: RoborUjPozicio
+Robot 1: 
+Egy kor eltelt.
+Tipusa: Ragacs 
+Pozicioja: (0,15) 
+Ennyi ido robot haladt at rajta: 0
+Ismeretlen parancs: RoborUjPozicio
+Ismeretlen parancs: RoborUjPozicio
+Egy kor eltelt.
+Ismeretlen parancs: Actor
+Ismeretlen parancs: RoborUjPozicio
+Ismeretlen parancs: RoborUjPozicio
+Egy kor eltelt.
+Ismeretlen parancs: AcotrInfo
+Ismeretlen parancs: RoborUjPozicio
+Ismeretlen parancs: RoborUjPozicio
+Egy kor eltelt.
+Glue
+Ter2
