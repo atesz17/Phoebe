@@ -7,8 +7,7 @@ Sebesseg: 0
 Irany: (0,21) 
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
-
-Uj OIL ezen a pozicion: (0,20). Nev: OIL_1
+Uj GLUE ezen a pozicion: (0,20). Nev: GLUE_1
 Egy kor eltelt.
-OIL_1
+GLUE_1
 Ter

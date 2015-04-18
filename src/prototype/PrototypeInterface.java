@@ -8,10 +8,7 @@ import com.gto.phoebe.ui.UserInterface;
 import com.gto.phoebe.util.PhoebeException;
 
 import java.awt.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -35,7 +32,21 @@ public class PrototypeInterface implements UserInterface {
         }
     }
 
-    private void executeCommand(String commandLine) {
+    public void readCommandFromFile(String fileName)  {
+        try {
+            File file = new File(fileName);
+            Scanner in = new Scanner(file);
+            String line = null;
+            while((line = in.next()) != null)   {
+                executeCommand(line);
+            }
+        }
+        catch (IOException e)   {
+            System.err.println("File not found: " + fileName);
+        }
+    }
+
+    public void executeCommand(String commandLine) {
 
         String[] commandParts = commandLine.split(" ");
         String command = commandParts[0].toLowerCase();
