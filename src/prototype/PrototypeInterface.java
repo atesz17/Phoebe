@@ -32,20 +32,6 @@ public class PrototypeInterface implements UserInterface {
         }
     }
 
-    public void readCommandFromFile(String fileName)  {
-        try {
-            File file = new File(fileName);
-            Scanner in = new Scanner(file);
-            String line = null;
-            while((line = in.next()) != null)   {
-                executeCommand(line);
-            }
-        }
-        catch (IOException e)   {
-            System.err.println("File not found: " + fileName);
-        }
-    }
-
     public void executeCommand(String commandLine) {
 
         String[] commandParts = commandLine.split(" ");
