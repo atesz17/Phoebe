@@ -1,22 +1,24 @@
 Palya 2 korrel inicializalasra kerult.
 Robot letrehozva ezen a pozicion: (0,0). Nev: Ter
 Olaj letrehozva ezen a pozicion: (0,20). Nev: Ol
-Tipusa: Robot 
-Pozicioja: (0,0) 
+Ter pozicioja: (0,20)
+Robot 1:
+Egy kor eltelt.
+Tipusa: Robot
+Pozicioja: (0,20)
 Megtett tavolsag: 0.0
 Sebesseg: 0
-Irany: (0,1) 
+Irany: (0,20)
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
-Ter pozicioja: (0,20)
+Robot 1:
 Egy kor eltelt.
-A megadott parameterek szama nem megfelelo. Elvart: 4 kapott: 3
-Egy kor eltelt.
-Tipusa: Robot 
-Pozicioja: (0,20) 
+Ter sebessege: 4
+Tipusa: Robot
+Pozicioja: (0,20)
 Megtett tavolsag: 0.0
 Sebesseg: 0
-Irany: (0,20) 
+Irany: (0,20)
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
 Ol

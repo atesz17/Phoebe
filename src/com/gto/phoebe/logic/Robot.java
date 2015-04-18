@@ -54,7 +54,8 @@ public abstract class Robot extends Actor {
     }
 
     public void setSpeed(int newSpeed) {
-        speed = newSpeed;
+        if(speedChangeEnabled)
+             speed = newSpeed;
     }
 
     public Point getDirection() {
