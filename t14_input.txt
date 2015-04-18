@@ -1,0 +1,9 @@
+PalyaBetolt 2
+ActorLetrehozas Ter Robot 0 0
+ActorLetrehozas Cle KisRobot 0 10
+ActorInfoTer
+ActorInfo Cle
+RobotUjpozicio Cle 0 10
+Kor
+OsszesActorListazas
+Kor

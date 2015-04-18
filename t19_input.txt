@@ -1,0 +1,11 @@
+PalyaBetolt 2
+ActorLetrehozas Ter Robot 0 0
+ActorLetrehozas Glue Ragacs 0 25
+ActorLetrehozas Oil Olaj 0 25
+RobotSebesseg Ter 2
+ActorInfo Ter
+RobotUjPozicio Ter 0 25
+Kor
+RobotIrany 90
+Kor
+ActorInfo Ter

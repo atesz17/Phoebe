@@ -1,0 +1,6 @@
+PalyaBetolt 1
+PalyaInfo
+ActorLetrehozas Ter Robot 20 20
+RobotUjPozicio Ter 20 40
+Kor
+OsszesActorListazas

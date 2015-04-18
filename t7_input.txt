@@ -1,0 +1,11 @@
+PalyaBetolt 3
+ActorLetrehozas Ter Robot 0 0
+RobotCsapdaLerakas Ter Olaj 
+Kor
+RobotUjPozicio Ter 20 0
+RobotCsapdaLerakas Ter Ragacs
+Kor
+ActorInfo Ter
+RobotUjPozicio 40 0
+Kor
+ActorInfo Ter

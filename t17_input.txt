@@ -1,0 +1,23 @@
+PalyaBetolt 10
+ActorLetrehozas Oil olaj 0 20
+ActorInfo Oil
+Kor
+ActorInfo Oil
+Kor
+ActorInfo Oil
+Kor
+ActorInfo Oil
+Kor
+ActorInfo Oil
+Kor
+ActorInfo Oil
+Kor
+ActorInfo Oil
+Kor
+ActorInfo Oil
+Kor
+ActorInfo Oil
+Kor
+ActorInfo Oil
+Kor
+OsszesActorListazas

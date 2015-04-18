@@ -1,0 +1,7 @@
+PalyaBetolt 2
+ActorLetrehozas Ter Robot 0 0
+ActorInfo Ter 
+Kor
+RobotUjPozicio Ter 40 0
+Kor
+ActorInfo Ter
