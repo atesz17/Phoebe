@@ -5,6 +5,3 @@ Hatralevo korok szama: 1
 Robot 1: 
 Egy kor eltelt.
 Rob
-cleaner_robot_0
-cleaner_robot_1
-cleaner_robot_2

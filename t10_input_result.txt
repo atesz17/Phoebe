@@ -15,6 +15,6 @@ Tipusa: Robot
 Pozicioja: (40,0) 
 Megtett tavolsag: 0.0
 Sebesseg: 0
-Irany: (40,0) 
+Irany: (0,0) 
 Olaj csapdak szama: 0
 Ragacs csapdak szama: 1

@@ -24,3 +24,5 @@ Ismeretlen parancs: RoborUjPozicio
 Egy kor eltelt.
 Glue
 Ter2
+cleaner_robot_9
+cleaner_robot_10

@@ -1,23 +1,11 @@
-Palya 2 korrel inicializalasra kerult.
+Palya 1 korrel inicializalasra kerult.
 Robot letrehozva ezen a pozicion: (0,0). Nev: Ter
-Ragacs letrehozva ezen a pozicion: (0,20). Nev: Rag
-Ter sebessege: 2
-Tipusa: Robot 
-Pozicioja: (0,0) 
-Megtett tavolsag: 0.0
-Sebesseg: 2
-Irany: (0,1) 
-Olaj csapdak szama: 1
-Ragacs csapdak szama: 1
 Ter pozicioja: (0,20)
 Egy kor eltelt.
 Tipusa: Robot 
-Pozicioja: (0,22) 
+Pozicioja: (0,20) 
 Megtett tavolsag: 0.0
-Sebesseg: 1
-Irany: (0,24) 
+Sebesseg: 0
+Irany: (0,20) 
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
-Egy kor eltelt.
-Rag
-Ter

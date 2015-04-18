@@ -1,10 +1,5 @@
-PalyaBetolt 2
+PalyaBetolt 1
 ActorLetrehozas Ter Robot 0 0
-ActorLetrehozas Rag Ragacs 0 20
-RobotSebesseg Ter 2
-ActorInfo Ter
 RobotUjPozicio Ter 0 20
 Kor
 ActorInfo Ter
-Kor
-OsszesActorListazas

@@ -40,6 +40,5 @@ Tipusa: Olaj
 Pozicioja: (0,20) 
 Ennyi ido mulva szarad fel: 1
 Egy kor eltelt.
-cleaner_robot_5
-cleaner_robot_6
-cleaner_robot_7
+cleaner_robot_11
+cleaner_robot_12

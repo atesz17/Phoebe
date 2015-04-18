@@ -11,3 +11,6 @@ Uj GLUE ezen a pozicion: (0,20). Nev: GLUE_1
 Egy kor eltelt.
 GLUE_1
 Ter
+cleaner_robot_0
+cleaner_robot_1
+cleaner_robot_2

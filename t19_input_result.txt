@@ -15,7 +15,7 @@ Egy kor eltelt.
 A megadott parameterek szama nem megfelelo. Elvart: 4 kapott: 2
 Egy kor eltelt.
 Tipusa: Robot 
-Pozicioja: (0,27) 
+Pozicioja: (0,28) 
 Megtett tavolsag: 0.0
 Sebesseg: 1
 Irany: (0,29) 
