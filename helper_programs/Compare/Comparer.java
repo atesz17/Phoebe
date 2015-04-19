@@ -1,62 +1,66 @@
 import java.io.*;
 
-public class Comparer {
+public class Main {
 
     public static void main(String[] args)  {
 
-        if (args.length != 2)   {
-            System.err.print("Not valid input, param1 = reference file name, param2 = comparable file name");
-        } else  {
-            File refFile = new File(args[0]);
-            File compFile = new File(args[1]);
+        try {
 
-            try {
-                BufferedReader refBr = new BufferedReader(new InputStreamReader(new FileInputStream(refFile)));
-                BufferedReader compBr = new BufferedReader(new InputStreamReader(new FileInputStream(compFile)));
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("Reference file name: ");
+            String ref = br.readLine();
+            System.out.println("Comparable file name: ");
+            String comp = br.readLine();
 
-                StringBuilder refSb = new StringBuilder();
-                StringBuilder compSb = new StringBuilder();
+            File refFile = new File(ref);
+            File compFile = new File(comp);
 
-                String refLine = null;
-                String compLine = null;
-                int lineNumber = 0;
-                boolean identical = true;
-                while ((refLine = refBr.readLine()) != null)   {
-                    lineNumber++;
-                    if ((compLine = compBr.readLine()) != null) {
-                        if (!refLine.equals(compLine))  {
-                            identical = false;
-                            break;
-                        }
-                    } else {
+            BufferedReader refBr = new BufferedReader(new InputStreamReader(new FileInputStream(refFile)));
+            BufferedReader compBr = new BufferedReader(new InputStreamReader(new FileInputStream(compFile)));
+
+            StringBuilder refSb = new StringBuilder();
+            StringBuilder compSb = new StringBuilder();
+
+            String refLine = null;
+            String compLine = null;
+            int lineNumber = 0;
+            boolean identical = true;
+            while ((refLine = refBr.readLine()) != null)   {
+                lineNumber++;
+                if ((compLine = compBr.readLine()) != null) {
+                    if (!refLine.equals(compLine))  {
                         identical = false;
                         break;
                     }
-                }
-
-                String newLine = null;
-                if (((newLine = compBr.readLine()) != null) && (identical == true)) {
-                    compLine = newLine;
+                } else {
                     identical = false;
-                    lineNumber++;
+                    break;
                 }
-
-                if (identical)  {
-                    System.out.println("Test was a success!");
-                } else  {
-                    System.err.println("Test result is not correct. Difference compared to reference file at: " + lineNumber);
-                    System.err.println("Expected: " + refLine + ", actual: " + compLine);
-                }
-
-                refBr.close();
-                compBr.close();
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
             }
-            catch (IOException e)   {
-                e.printStackTrace();
+
+            String newLine = null;
+            if (((newLine = compBr.readLine()) != null) && (identical == true)) {
+                compLine = newLine;
+                identical = false;
+                lineNumber++;
             }
+
+            if (identical)  {
+                System.out.println("Test was a success!");
+            } else  {
+                System.err.println("Test result is not correct. Difference compared to reference file at: " + lineNumber);
+                System.err.println("Expected: " + refLine + ", actual: " + compLine);
+            }
+
+            refBr.close();
+            compBr.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
+        catch (IOException e)   {
+            e.printStackTrace();
+        }
+
     }
 }
