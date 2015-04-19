@@ -59,7 +59,7 @@ public class Level {
                 trapIterator.remove();
             }
         }
-        spawnCleaners();
+//        spawnCleaners();
         remainingTurns--;
     }
 
