@@ -3,21 +3,21 @@ Robot letrehozva ezen a pozicion: (0,0). Nev: Ter
 Ragacs letrehozva ezen a pozicion: (0,25). Nev: Glue
 Olaj letrehozva ezen a pozicion: (0,25). Nev: Oil
 Ter sebessege: 2
-Tipusa: Robot 
-Pozicioja: (0,0) 
+Tipusa: Robot
+Pozicioja: (0,0)
 Megtett tavolsag: 0.0
 Sebesseg: 2
-Irany: (0,1) 
+Irany: (0,1)
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
+Sebességmódosítás: true
 Ter pozicioja: (0,25)
 Egy kor eltelt.
-A megadott parameterek szama nem megfelelo. Elvart: 4 kapott: 2
-Egy kor eltelt.
-Tipusa: Robot 
-Pozicioja: (0,28) 
-Megtett tavolsag: 0.0
+Tipusa: Robot
+Pozicioja: (0,27)
+Megtett tavolsag: 2.0
 Sebesseg: 1
-Irany: (0,29) 
+Irany: (0,29)
 Olaj csapdak szama: 1
 Ragacs csapdak szama: 1
+Sebességmódosítás: false

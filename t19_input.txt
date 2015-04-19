@@ -6,6 +6,4 @@ RobotSebesseg Ter 2
 ActorInfo Ter
 RobotUjPozicio Ter 0 25
 Kor
-RobotIrany 90
-Kor
 ActorInfo Ter
