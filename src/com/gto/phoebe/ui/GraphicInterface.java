@@ -5,6 +5,7 @@ import com.gto.phoebe.domain.TrapTypes;
 import com.gto.phoebe.logic.TrapperRobot;
 
 public class GraphicInterface implements UserInterface {
+
     @Override
     public Movement getMovementInput(TrapperRobot robot) {
         return null;
