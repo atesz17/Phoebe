@@ -1,13 +1,15 @@
 package com.gto.phoebe.logic;
 
+import java.awt.*;
+
 public class TrapInventory {
 
     private int oilCount;
     private int glueCount;
 
     public TrapInventory() {
-        oilCount = 0;
-        glueCount = 0;
+        oilCount = 1;
+        glueCount = 1;
     }
 
     public TrapInventory(int oilCount, int glueCount) throws Exception {
@@ -18,19 +20,19 @@ public class TrapInventory {
         this.glueCount = glueCount;
     }
 
-    public Oil getOil() {
+    public Oil getOil(Point position) {
         if (oilCount > 0)  {
             oilCount -= 1;
-            return new Oil();
+            return new Oil(position);
         } else  {
             return null;
         }
     }
 
-    public Glue getGlue()   {
+    public Glue getGlue(Point position)   {
         if (glueCount > 0)  {
             glueCount -= 1;
-            return new Glue();
+            return new Glue(position);
         } else  {
             return null;
         }

@@ -6,10 +6,6 @@ public abstract class Trap extends Actor {
     protected int lifeSpan;
     protected int cleaningTime = 2;
 
-    public Trap() {
-        super();
-    }
-
     public Trap(Point position, String name, int size, int lifeSpan) {
         super(position, name, size);
         this.lifeSpan = lifeSpan;

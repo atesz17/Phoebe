@@ -53,11 +53,11 @@ public class TrapperRobot extends Robot {
 
         level.checkCollisionOnRobot(this);
 
-        plantTrap(level);
+        plantTrap();
     }
 
 
-    private void plantTrap(Level level) {
+    public void plantTrap() {
         TrapTypes trap = userInterface.getTrapInput(this);
         switch (trap) {
             case OIL:
@@ -99,11 +99,11 @@ public class TrapperRobot extends Robot {
     }
 
     public Oil dropOil() {
-        return trapInventory.getOil();
+        return trapInventory.getOil(position);
     }
 
     public Glue dropGlue() {
-        return trapInventory.getGlue();
+        return trapInventory.getGlue(position);
     }
 
     public void reloadTraps() {

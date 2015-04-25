@@ -10,12 +10,12 @@ public class CleanerRobot extends Robot {
 
     private static int SIZE = 5;
     private static int SPEED = 5;
-    private static int id = 0;
+    private static int ID = 0;
 
     private Trap target = null;
 
     public CleanerRobot(Point position, Level level, UserInterface userInterface) {
-        super(position, SIZE, "cleaner_robot_" + id++, level, userInterface);
+        super(position, SIZE, "cleaner_robot_" + ID++, level, userInterface);
         this.speed = SPEED;
     }
 
@@ -48,7 +48,9 @@ public class CleanerRobot extends Robot {
         if (target == null) {
             getTarget();
         }
-        jump();
+        if(target != null) {
+            jump();
+        }
 
         level.checkCollisionOnRobot(this);
 
@@ -57,6 +59,9 @@ public class CleanerRobot extends Robot {
 
     private void getTarget() {
         List<Trap> traps = level.getTraps();
+        if(traps.isEmpty()){
+            return;
+        }
         Trap min = traps.get(0);
 
         for (Trap trap : traps) {
