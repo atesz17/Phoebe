@@ -4,6 +4,7 @@ import com.gto.phoebe.logic.Level;
 import com.gto.phoebe.util.PhoebeException;
 
 import javax.swing.*;
+import java.io.InputStream;
 
 public class GraphicGame {
 
@@ -24,9 +25,13 @@ public class GraphicGame {
         frame.setVisible(true);
     }
 
-    public void startGame(){
+    public void startGame(int numberOfTurns, InputStream map){
+        System.out.println("elindult...");
+        frame.remove(menuPanel);
+        frame.setContentPane(gamePanel);
         try {
-            level = new Level(menuPanel.getNumberOfTurns(), menuPanel.getMap(), graphicInterface);
+            level = new Level(numberOfTurns, map, graphicInterface);
+            level.startGame();
         } catch (PhoebeException e) {
             //TODO normalisan...
             e.printStackTrace();
