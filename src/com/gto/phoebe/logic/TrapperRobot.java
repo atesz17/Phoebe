@@ -9,11 +9,12 @@ import java.awt.*;
 public class TrapperRobot extends Robot {
 
     private static int SIZE = 10;
+    private static Color COLOR = Color.DARK_GRAY;
 
     protected TrapInventory trapInventory = new TrapInventory();
 
     public TrapperRobot(Point position, String name, Level level, UserInterface userInterface) {
-        super(position, SIZE, name, level, userInterface);
+        super(position, SIZE, COLOR, name, level, userInterface);
     }
 
     public void jump() {

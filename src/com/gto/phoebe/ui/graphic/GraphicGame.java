@@ -5,6 +5,7 @@ import com.gto.phoebe.util.PhoebeException;
 
 import javax.swing.*;
 import java.io.InputStream;
+import java.util.List;
 
 public class GraphicGame {
 
@@ -17,28 +18,40 @@ public class GraphicGame {
 
     public GraphicGame() {
         menuPanel = new MenuPanel(this);
-        gamePanel = new GamePanel(this);
-        graphicInterface = new GraphicInterface(gamePanel);
+        graphicInterface = new GraphicInterface();
         frame = new JFrame("Phoebe");
         frame.setContentPane(menuPanel);
         frame.setSize(600, 600);
         frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void startGame(int numberOfTurns, InputStream map){
-        System.out.println("elindult...");
-        frame.remove(menuPanel);
-        frame.setContentPane(gamePanel);
+    public void startGame(int numberOfTurns, InputStream map, List<String> players){
         try {
             level = new Level(numberOfTurns, map, graphicInterface);
+            for(String playerName : players){
+                level.addPlayer(playerName);
+            }
+            gamePanel = new GamePanel(this);
+            graphicInterface.setGamePanel(gamePanel);
+
+            frame.remove(menuPanel);
+            frame.setContentPane(gamePanel);
+            frame.pack();
+            frame.revalidate();
+            frame.setSize(level.getGameMap().getWidth() + GamePanel.PLAYER_STATUS_PANEL_WIDTH, level.getGameMap().getHeight());
+
             level.startGame();
         } catch (PhoebeException e) {
-            //TODO normalisan...
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(gamePanel, e.getMessage());
         }
     }
 
     public void finishGame(){
 
+    }
+
+    public Level getLevel() {
+        return level;
     }
 }

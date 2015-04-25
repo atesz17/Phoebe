@@ -78,7 +78,7 @@ public class Level {
         }
     }
 
-    private boolean isAnybodyAlive() {
+    public boolean isAnybodyAlive() {
         return playersAlive > 1;
     }
 
@@ -158,6 +158,11 @@ public class Level {
         playersAlive++;
     }
 
+    public void addPlayer(String name){
+        Point playerPosition = gameMap.getValidField();
+        addPlayer(new TrapperRobot(playerPosition, name, this, userInterface));
+    }
+
     public void addCleaner() {
         robots.add(new CleanerRobot(gameMap.getValidField(), this, userInterface));
     }
@@ -166,7 +171,15 @@ public class Level {
         return traps;
     }
 
+    public List<Robot> getRobots() {
+        return robots;
+    }
+
     public boolean isValidField(Point point){
         return gameMap.isValidField(point);
+    }
+
+    public GameMap getGameMap(){
+        return gameMap;
     }
 }

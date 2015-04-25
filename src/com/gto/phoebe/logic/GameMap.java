@@ -9,7 +9,7 @@ import java.awt.geom.Line2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameMap {
@@ -69,5 +69,21 @@ public class GameMap {
 
     public boolean isValidField(Point point) {
         return map.contains(point);
+    }
+
+    public List<Point> getMap() {
+        return map;
+    }
+
+    public Line2D getStartLine() {
+        return startLine;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
     }
 }

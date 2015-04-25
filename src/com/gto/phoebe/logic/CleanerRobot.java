@@ -9,13 +9,14 @@ import java.util.List;
 public class CleanerRobot extends Robot {
 
     private static int SIZE = 5;
+    private static Color COLOR = Color.LIGHT_GRAY;
     private static int SPEED = 5;
     private static int ID = 0;
 
     private Trap target = null;
 
     public CleanerRobot(Point position, Level level, UserInterface userInterface) {
-        super(position, SIZE, "cleaner_robot_" + ID++, level, userInterface);
+        super(position, SIZE, COLOR, "cleaner_robot_" + ID++, level, userInterface);
         this.speed = SPEED;
     }
 

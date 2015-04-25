@@ -6,10 +6,11 @@ public class Glue extends Trap {
 
     private static final int START_LIFESPAN = 4;
     private static int SIZE = 10;
+    private static Color COLOR = Color.GREEN;
     private static int UNIQUE_ID = 0;
 
     public Glue(Point position)    {
-        super(position, "GLUE_" + ++UNIQUE_ID, SIZE, START_LIFESPAN);
+        super(position, "GLUE_" + ++UNIQUE_ID, SIZE, COLOR, START_LIFESPAN);
     }
 
     @Override

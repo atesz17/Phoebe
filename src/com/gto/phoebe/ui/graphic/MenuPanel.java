@@ -11,17 +11,28 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MenuPanel extends JPanel implements ActionListener {
+
     private GraphicGame graphicGame;
+
     private JPanel loadMapPanel;
     private JLabel loadMapLabel;
     private JButton loadMapButton;
     private File loadedMap;
     private JFileChooser loadMapFileChooser;
+
     private JPanel numberOfTurnsPanel;
     private JLabel numberOfTurnsLabel;
-    private JTextArea numberOfTurnsTextArea;
+    private JTextField numberOfTurnsTextArea;
+
+    private JPanel playersPanel;
+    private JLabel playersLabel;
+    private List<JTextField> playersList = new ArrayList<JTextField>();
+    private JButton addPlayerButton;
+
     private JButton startButton;
 
     public MenuPanel(GraphicGame graphicGame) {
@@ -37,9 +48,16 @@ public class MenuPanel extends JPanel implements ActionListener {
 
         numberOfTurnsPanel = new JPanel(new FlowLayout());
         numberOfTurnsLabel = new JLabel("Number of turns");
-        numberOfTurnsTextArea = new JTextArea("10");
+        numberOfTurnsTextArea = new JTextField("10");
         numberOfTurnsPanel.add(numberOfTurnsLabel);
         numberOfTurnsPanel.add(numberOfTurnsTextArea);
+
+        playersPanel = new JPanel(new FlowLayout());
+        playersLabel = new JLabel("Set players");
+        addPlayerButton = new JButton("Add new player");
+        addPlayerButton.addActionListener(this);
+        playersPanel.add(playersLabel);
+        playersPanel.add(addPlayerButton);
 
         startButton = new JButton("Start Game");
         startButton.addActionListener(this);
@@ -47,6 +65,7 @@ public class MenuPanel extends JPanel implements ActionListener {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         add(loadMapPanel);
         add(numberOfTurnsPanel);
+        add(playersPanel);
         add(startButton);
     }
 
@@ -59,11 +78,26 @@ public class MenuPanel extends JPanel implements ActionListener {
                 loadMapButton.setText(loadedMap.getName());
             }
         }
+
+        if(actionEvent.getSource() == addPlayerButton){
+            remove(startButton);
+            JTextField player = new JTextField("");
+            player.setColumns(20);
+            playersList.add(player);
+            int playerNum = playersList.size();
+            JPanel playerPanel = new JPanel(new FlowLayout());
+            playerPanel.add(new JLabel("Player" + (playerNum)));
+            playerPanel.add(playersList.get(playerNum - 1));
+            add(playerPanel);
+            add(startButton);
+            revalidate();
+        }
+
         if (actionEvent.getSource() == startButton){
             try {
                 validateStartParameters();
                 int numberOfTurns = Integer.parseInt(numberOfTurnsTextArea.getText());
-                graphicGame.startGame(numberOfTurns, new FileInputStream(loadedMap));
+                graphicGame.startGame(numberOfTurns, new FileInputStream(loadedMap), getPlayerNames());
             } catch (PhoebeException e) {
                 JOptionPane.showMessageDialog(this, e.getMessage());
             } catch (FileNotFoundException fnfe){
@@ -71,6 +105,14 @@ public class MenuPanel extends JPanel implements ActionListener {
                 fnfe.printStackTrace();
             }
         }
+    }
+
+    private List<String> getPlayerNames() {
+        List<String> ret = new ArrayList<String>();
+        for(JTextField jTextField : playersList){
+            ret.add(jTextField.getText());
+        }
+        return ret;
     }
 
     private void validateStartParameters() throws PhoebeException {
@@ -87,6 +129,23 @@ public class MenuPanel extends JPanel implements ActionListener {
         if(loadedMap == null){
             errorList.add(new ErrorDescriber("Map is not selected."));
         }
+
+        if(playersList.size() < 2){
+            errorList.add(new ErrorDescriber("Minimum number of players: 2"));
+        }
+        for(JTextField player : playersList){
+            String playerName = player.getText();
+            if(playerName.isEmpty()){
+                errorList.add(new ErrorDescriber("Player name must be set."));
+            }
+            for(JTextField otherPlayer : playersList){
+                if(otherPlayer != player && playerName.equals(otherPlayer.getText())){
+                    //TODO ne ketszer irja ki
+                    errorList.add(new ErrorDescriber("Player names must be different."));
+                }
+            }
+        }
+
         if(!errorList.getErrors().isEmpty()){
             throw new PhoebeException(errorList);
         }

@@ -6,6 +6,7 @@ public abstract class Actor {
 
     protected Point position;
     protected int size;
+    protected Color color;
     protected boolean isDead;
     protected String name = "";
 
@@ -14,10 +15,11 @@ public abstract class Actor {
         this.size = 0;
     }
 
-    public Actor(Point position, String name, int size) {
+    public Actor(Point position, String name, int size, Color color) {
         this.position = position;
         this.name = name;
         this.size = size;
+        this.color = color;
     }
 
     public abstract void turn();
@@ -32,6 +34,10 @@ public abstract class Actor {
 
     public int getSize() {
         return size;
+    }
+
+    public Color getColor() {
+        return color;
     }
 
     public void setSize(int size) {

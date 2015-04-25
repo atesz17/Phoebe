@@ -18,8 +18,8 @@ public abstract class Robot extends Actor {
         super();
     }
 
-    public Robot(Point position, int size, String name, Level level, UserInterface userInterface) {
-        super(position, name, size);
+    public Robot(Point position, int size, Color color, String name, Level level, UserInterface userInterface) {
+        super(position, name, size, color);
         this.level = level;
         setDirection(new Point(position.x, position.y + 1));
         this.userInterface = userInterface;
