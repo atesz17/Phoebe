@@ -54,6 +54,7 @@ public class GameActionPanel extends JPanel {
     }
 
     public void drawArrow(Point mousePosition, Point robotPosition) {
+        repaint();
         Graphics g = getGraphics();
         g.setColor(Color.BLUE);
         g.drawLine(mousePosition.x, mousePosition.y, robotPosition.x, robotPosition.y);

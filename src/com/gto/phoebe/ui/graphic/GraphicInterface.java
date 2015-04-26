@@ -5,7 +5,6 @@ import com.gto.phoebe.domain.TrapTypes;
 import com.gto.phoebe.logic.TrapperRobot;
 import com.gto.phoebe.ui.UserInterface;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class GraphicInterface implements UserInterface {
@@ -51,8 +50,7 @@ public class GraphicInterface implements UserInterface {
 
     @Override
     public TrapTypes getTrapInput(TrapperRobot robot) {
-        JOptionPane.showMessageDialog(gamePanel, "csapda");
-        return null;
+        return TrapTypes.NONE;
     }
 
     public void setGamePanel(GamePanel gamePanel) {

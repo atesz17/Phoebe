@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Level {
+public class Level implements Runnable{
 
     private GameMap gameMap;
     private int remainingTurns;
@@ -24,18 +24,6 @@ public class Level {
         gameMap = new GameMap(map);
         this.remainingTurns = remainingTurns;
         this.userInterface = userInterface;
-    }
-
-    public void startGame() {
-        gameCycle();
-
-        //TODO itt lesz a jatek vege
-    }
-
-    private void gameCycle() {
-        while (remainingTurns > 0) {
-            turn();
-        }
     }
 
     public void turn() {
@@ -181,5 +169,12 @@ public class Level {
 
     public GameMap getGameMap(){
         return gameMap;
+    }
+
+    @Override
+    public void run() {
+        while (remainingTurns > 0) {
+            turn();
+        }
     }
 }

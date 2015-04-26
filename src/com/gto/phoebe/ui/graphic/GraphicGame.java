@@ -41,7 +41,8 @@ public class GraphicGame {
             frame.revalidate();
             frame.setSize(level.getGameMap().getWidth() + GamePanel.PLAYER_STATUS_PANEL_WIDTH, level.getGameMap().getHeight());
 
-            level.startGame();
+            Thread t1 = new Thread(level);
+            t1.start();
         } catch (PhoebeException e) {
             JOptionPane.showMessageDialog(gamePanel, e.getMessage());
         }

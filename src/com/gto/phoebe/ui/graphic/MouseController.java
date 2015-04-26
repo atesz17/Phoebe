@@ -34,6 +34,6 @@ public class MouseController extends MouseAdapter {
     }
 
     public void setClicked() {
-        this.clicked = true;
+        this.clicked = false;
     }
 }
