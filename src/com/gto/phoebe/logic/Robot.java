@@ -14,10 +14,6 @@ public abstract class Robot extends Actor {
     protected UserInterface userInterface;
     protected Level level;
 
-    public Robot() {
-        super();
-    }
-
     public Robot(Point position, int size, Color color, String name, Level level, UserInterface userInterface) {
         super(position, name, size, color);
         this.level = level;
