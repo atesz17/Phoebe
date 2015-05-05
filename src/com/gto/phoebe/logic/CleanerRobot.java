@@ -10,7 +10,7 @@ public class CleanerRobot extends Robot {
 
     private static int SIZE = 10;
     private static Color COLOR = Color.LIGHT_GRAY;
-    private static int SPEED = 5;
+    private static int SPEED = 10;
     private static int ID = 0;
 
     private Trap target = null;
@@ -35,6 +35,7 @@ public class CleanerRobot extends Robot {
                 break;
             }
         }
+        System.out.println("position " + position + " new position " + newPosition + " target " + targetPosition.toString());
         position = newPosition;
     }
 
@@ -74,6 +75,7 @@ public class CleanerRobot extends Robot {
             }
         }
         target = min;
+        direction = target.getPosition();
     }
 
     private void cleanUp(List<Trap> traps) {
