@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class TrapperRobot extends Robot {
 
-    private static int SIZE = 10;
+    private static int SIZE = 20;
     private static Color COLOR = Color.DARK_GRAY;
 
     protected TrapInventory trapInventory = new TrapInventory();

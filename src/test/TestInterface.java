@@ -25,6 +25,11 @@ public class TestInterface implements UserInterface {
         return trapTypes;
     }
 
+    @Override
+    public void gameOver(String winner) {
+
+    }
+
     public void setMovement(Movement movement) {
         this.movement = movement;
     }

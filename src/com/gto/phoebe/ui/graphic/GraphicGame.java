@@ -55,7 +55,10 @@ public class GraphicGame {
     }
 
     public void finishGame(){
-
+        frame.remove(gamePanel);
+        frame.setContentPane(menuPanel);
+        frame.setSize(600, 600);
+        frame.revalidate();
     }
 
     public Level getLevel() {

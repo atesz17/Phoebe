@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CleanerRobot extends Robot {
 
-    private static int SIZE = 5;
+    private static int SIZE = 10;
     private static Color COLOR = Color.LIGHT_GRAY;
     private static int SPEED = 5;
     private static int ID = 0;

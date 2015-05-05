@@ -5,7 +5,7 @@ import java.awt.*;
 public class Glue extends Trap {
 
     private static final int START_LIFESPAN = 4;
-    private static int SIZE = 10;
+    private static int SIZE = 40;
     private static Color COLOR = Color.GREEN;
     private static int UNIQUE_ID = 0;
 

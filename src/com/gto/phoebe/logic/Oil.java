@@ -5,7 +5,7 @@ import java.awt.*;
 public class Oil extends Trap {
 
     private static final int START_LIFESPAN = 10;
-    private static int SIZE = 10;
+    private static int SIZE = 40;
     private static Color COLOR = Color.MAGENTA;
     private static int UNIQUE_ID = 0;
 

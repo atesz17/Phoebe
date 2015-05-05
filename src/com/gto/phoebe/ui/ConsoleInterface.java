@@ -54,4 +54,9 @@ public class ConsoleInterface implements UserInterface{
             }
         }
     }
+
+    @Override
+    public void gameOver(String winner) {
+        print("Game over. The winner is " + winner);
+    }
 }

@@ -69,4 +69,8 @@ public class GamePanel extends JPanel {
     public void setMessage(String message){
         messageArea.setText(message);
     }
+
+    public void gameOver() {
+        graphicGame.finishGame();
+    }
 }

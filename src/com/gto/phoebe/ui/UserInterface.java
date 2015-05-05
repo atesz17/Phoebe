@@ -8,4 +8,5 @@ public interface UserInterface {
     Movement getMovementInput(TrapperRobot robot);
     void print(String message);
     TrapTypes getTrapInput(TrapperRobot robot);
+    void gameOver(String winner);
 }

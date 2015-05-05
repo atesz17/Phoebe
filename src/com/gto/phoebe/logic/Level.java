@@ -177,5 +177,6 @@ public class Level implements Runnable{
         while (remainingTurns > 0) {
             turn();
         }
+        userInterface.gameOver(getWinner().name);
     }
 }
