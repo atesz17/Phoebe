@@ -17,6 +17,8 @@ public class GamePanel extends JPanel {
     private JButton oilButton;
     private JButton noneButton;
 
+    private JTextArea messageArea;
+
     private GameActionPanel gameActionPanel;
 
     public GamePanel(GraphicGame graphicGame) {
@@ -28,11 +30,14 @@ public class GamePanel extends JPanel {
         playerStatusTextArea.setSize(PLAYER_STATUS_PANEL_WIDTH, getLevel().getGameMap().getHeight());
         playerStatusPanel.add(playerStatusTextArea);
 
+        messageArea = new JTextArea();
+
         gameActionPanel = new GameActionPanel(this);
         gameActionPanel.addMouseListener(mouseController);
         gameActionPanel.addMouseMotionListener(mouseController);
 
         setLayout(new BorderLayout());
+        add(messageArea, BorderLayout.PAGE_START);
         add(gameActionPanel, BorderLayout.CENTER);
         add(playerStatusPanel, BorderLayout.LINE_END);
     }
@@ -59,5 +64,9 @@ public class GamePanel extends JPanel {
 
     public void approveClicked() {
         mouseController.setClicked();
+    }
+
+    public void setMessage(String message){
+        messageArea.setText(message);
     }
 }

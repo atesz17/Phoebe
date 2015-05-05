@@ -34,9 +34,9 @@ public class TrapperRobot extends Robot {
 
     private Point calculatePosition(Movement movement) {
         int newSpeed = speed + movement.speedChange;
-        double newAngle = getAngle() + movement.angleChange;
+        double newAngleInRad = getAngleInRad() + movement.angleChangeInRad;
 
-        return translate(newSpeed, newAngle);
+        return translate(newSpeed, newAngleInRad);
     }
 
     @Override

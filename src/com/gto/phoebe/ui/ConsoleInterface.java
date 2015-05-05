@@ -26,7 +26,7 @@ public class ConsoleInterface implements UserInterface{
         }
 
         System.out.println("Your angle change: (in degrees)");
-        movement.angleChange = in.nextInt() % 360;
+        movement.angleChangeInRad = in.nextInt() % 360;
 
         return movement;
     }

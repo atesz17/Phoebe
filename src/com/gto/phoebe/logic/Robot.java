@@ -25,16 +25,13 @@ public abstract class Robot extends Actor {
         this.userInterface = userInterface;
     }
 
-    protected double getAngle() {
-        int a = Math.abs(direction.y - position.y);
-        int b = Math.abs(direction.x - position.x);
-        double c = Math.sqrt(a * a + b * b);
-        return Math.asin(a / c) * 180 / Math.PI;
+    public double getAngleInRad() {
+        return Math.atan2(direction.y - position.y, direction.x - position.x);
     }
 
-    protected Point translate(int speed, double angle) {
-        int newX = (int) Math.round(speed * Math.cos(angle * Math.PI / 180));
-        int newY = (int) Math.round(speed * Math.sin(angle * Math.PI / 180));
+    protected Point translate(int speed, double angleInRad) {
+        int newX = (int) Math.round(speed * Math.cos(angleInRad));
+        int newY = (int) Math.round(speed * Math.sin(angleInRad));
 
         return new Point(position.x + newX, position.y + newY);
     }

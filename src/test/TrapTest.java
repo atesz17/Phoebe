@@ -29,7 +29,7 @@ public class TrapTest {
 
         Movement movement = new Movement();
         movement.speedChange = 1;
-        movement.angleChange = 90;
+        movement.angleChangeInRad = 90;
         userInterface.setMovement(movement);
 
         robot.jump();
@@ -59,7 +59,7 @@ public class TrapTest {
 
         Movement movement = new Movement();
         movement.speedChange = 1;
-        movement.angleChange = 90;
+        movement.angleChangeInRad = 90;
         userInterface.setMovement(movement);
         robot.jump();
 

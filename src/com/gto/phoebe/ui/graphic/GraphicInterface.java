@@ -35,10 +35,10 @@ public class GraphicInterface implements UserInterface {
             movement.speedChange = 0;
         }
 
-        double angle = Math.atan2(robot.getDirection().y - robot.getPosition().y, robot.getDirection().x - robot.getPosition().x);
-        double newAngle = Math.atan2(newPosition.y - robot.getPosition().y, newPosition.x - robot.getPosition().x);
+        double angleInRad = Math.atan2(robot.getDirection().y - robot.getPosition().y, robot.getDirection().x - robot.getPosition().x);
+        double newAngleInRad = Math.atan2(newPosition.y - robot.getPosition().y, newPosition.x - robot.getPosition().x);
 
-        movement.angleChange = (int)((angle - newAngle)/Math.PI * 180);
+        movement.angleChangeInRad = newAngleInRad - angleInRad;
 
         return movement;
     }

@@ -30,6 +30,7 @@ public class Level implements Runnable{
         Iterator robotIterator = robots.iterator();
         while (robotIterator.hasNext()){
             Robot robot = (Robot)robotIterator.next();
+            userInterface.print(robot.name + "'s turn");
             robot.turn();
             if(robot.isDead){
                 robotIterator.remove();

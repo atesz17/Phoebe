@@ -29,14 +29,14 @@ public class GameActionPanel extends JPanel {
     private void drawTraps(Graphics g) {
         for(Trap trap : level.getTraps()){
             g.setColor(trap.getColor());
-            g.fillOval(trap.getPosition().x, trap.getPosition().y, trap.getSize(), trap.getSize());
+            g.fillOval(trap.getPosition().x - trap.getSize() / 2, trap.getPosition().y - trap.getSize() / 2, trap.getSize(), trap.getSize());
         }
     }
 
     private void drawRobots(Graphics g) {
         for(Robot robot : level.getRobots()){
             g.setColor(robot.getColor());
-            g.fillOval(robot.getPosition().x, robot.getPosition().y, robot.getSize(), robot.getSize());
+            g.fillOval(robot.getPosition().x - robot.getSize() / 2, robot.getPosition().y - robot.getSize() / 2, robot.getSize(), robot.getSize());
         }
     }
 

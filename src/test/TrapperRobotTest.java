@@ -36,7 +36,7 @@ public class TrapperRobotTest {
     public void jumpTest() {
         Movement movement = new Movement();
         movement.speedChange = 1;
-        movement.angleChange = 90;
+        movement.angleChangeInRad = 90;
         userInterface.setMovement(movement);
 
         TrapperRobot robot = new TrapperRobot(new Point(100, 100), "Bela", level, userInterface);
@@ -72,7 +72,7 @@ public class TrapperRobotTest {
         TrapperRobot robot = new TrapperRobot(new Point(100, 100), "Bela", level, userInterface);
         Movement movement = new Movement();
         movement.speedChange = 1;
-        movement.angleChange = 0;
+        movement.angleChangeInRad = 0;
         userInterface.setMovement(movement);
 
         robot.jump();

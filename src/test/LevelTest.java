@@ -26,7 +26,7 @@ public class LevelTest {
     public void winnerTest() throws Exception {
         Movement movement = new Movement();
         movement.speedChange = 1;
-        movement.angleChange = 90;
+        movement.angleChangeInRad = 90;
         userInterface.setMovement(movement);
 
         Level level = new Level(100, map, userInterface);

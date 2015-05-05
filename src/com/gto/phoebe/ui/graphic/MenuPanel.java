@@ -1,5 +1,6 @@
 package com.gto.phoebe.ui.graphic;
 
+import com.gto.phoebe.Main;
 import com.gto.phoebe.util.ErrorDescriber;
 import com.gto.phoebe.util.ErrorList;
 import com.gto.phoebe.util.PhoebeException;
@@ -11,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +37,7 @@ public class MenuPanel extends JPanel implements ActionListener {
 
     private JButton startButton;
 
-    public MenuPanel(GraphicGame graphicGame) {
+    public MenuPanel(GraphicGame graphicGame) throws URISyntaxException {
         this.graphicGame = graphicGame;
 
         loadMapPanel = new JPanel(new FlowLayout());
@@ -45,6 +47,11 @@ public class MenuPanel extends JPanel implements ActionListener {
         loadMapButton.addActionListener(this);
         loadMapPanel.add(loadMapLabel);
         loadMapPanel.add(loadMapButton);
+
+        //TODO felesleges exception majd, ha ezt kiveszem
+        if(Main.RUNLEVEL.equals("DEBUG")){
+            loadedMap = new File(ClassLoader.getSystemResource("resources/map.bmp").toURI());
+        }
 
         numberOfTurnsPanel = new JPanel(new FlowLayout());
         numberOfTurnsLabel = new JLabel("Number of turns");
@@ -66,6 +73,19 @@ public class MenuPanel extends JPanel implements ActionListener {
         add(loadMapPanel);
         add(numberOfTurnsPanel);
         add(playersPanel);
+
+        if(Main.RUNLEVEL.equals("DEBUG")){
+            playersList.add(new JTextField("UBUL"));
+            playersList.add(new JTextField("BELA"));
+            int playerNum = playersList.size();
+            for(int i = 0; i < playerNum; i++) {
+                JPanel playerPanel = new JPanel(new FlowLayout());
+                playerPanel.add(new JLabel("Player" + i + 1));
+                playerPanel.add(playersList.get(i));
+                add(playerPanel);
+            }
+        }
+
         add(startButton);
     }
 

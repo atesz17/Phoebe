@@ -30,7 +30,7 @@ public class CleanerRobot extends Robot {
 
         Point newPosition = null;
         for(int i = 0; i < 6; i++){
-            newPosition = translate(speed, getAngle() + i * 60);
+            newPosition = translate(speed, getAngleInRad() + i * 60);
             if(level.isValidField(newPosition)){
                 break;
             }
