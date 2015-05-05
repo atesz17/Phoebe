@@ -6,7 +6,7 @@ public class Glue extends Trap {
 
     private static final int START_LIFESPAN = 4;
     private static int SIZE = 40;
-    private static Color COLOR = Color.GREEN;
+    private static Color COLOR = Color.BLUE;
     private static int UNIQUE_ID = 0;
 
     public Glue(Point position)    {

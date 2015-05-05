@@ -111,4 +111,16 @@ public class TrapperRobot extends Robot {
         trapInventory.reloadTraps();
     }
 
+    public String getStatus() {
+        String ret = "";
+        ret += "Játékos: " + name + " \n";
+        ret += "Pozíció: (" + position.x + "," + position.y + ") \n";
+        ret += "Megtett távolság: " + totalDistanceTraveled + "\n";
+        ret += "Sebesség: " + speed + "\n";
+        ret += "Olaj csapdák száma: " + trapInventory.getOilCount() + "\n";
+        ret += "Ragacs csapdák száma: " + trapInventory.getGlueCount() + "\n";
+        ret += "Sebességmódosítás: " + (this.speedChangeEnabled?"Engedélyezett":"Tiltott");
+
+        return ret;
+    }
 }

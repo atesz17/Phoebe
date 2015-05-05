@@ -14,9 +14,11 @@ public class GraphicInterface implements UserInterface {
 
     @Override
     public Movement getMovementInput(TrapperRobot robot) {
+
+        gamePanel.setStatus(robot.getStatus());
+
         while(!gamePanel.isClicked()){
             gamePanel.drawArrow(robot.getPosition());
-
         }
 
         Point position = gamePanel.getClickPosition();
@@ -46,12 +48,15 @@ public class GraphicInterface implements UserInterface {
 
     @Override
     public void print(String message) {
-
+        gamePanel.setMessage(message);
     }
 
     @Override
     public TrapTypes getTrapInput(TrapperRobot robot) {
-        return TrapTypes.NONE;
+        while(!gamePanel.isTrapped())
+            ;
+        gamePanel.setTrapped();
+        return gamePanel.getTrapType();
     }
 
     @Override

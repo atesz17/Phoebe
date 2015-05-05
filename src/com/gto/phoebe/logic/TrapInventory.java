@@ -4,6 +4,9 @@ import java.awt.*;
 
 public class TrapInventory {
 
+    private static int MAX_GLUE = 1;
+    private static int MAX_OIL = 1;
+
     private int oilCount;
     private int glueCount;
 
@@ -39,7 +42,15 @@ public class TrapInventory {
     }
 
     public void reloadTraps()   {
-        oilCount = 1;
-        glueCount = 1;
+        oilCount = MAX_OIL;
+        glueCount = MAX_GLUE;
+    }
+
+    public int getOilCount() {
+        return oilCount;
+    }
+
+    public int getGlueCount() {
+        return glueCount;
     }
 }
