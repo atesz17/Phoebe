@@ -89,7 +89,11 @@ public class GraphicInterface implements UserInterface {
      */
     @Override
     public void gameOver(String winner) {
-        JOptionPane.showMessageDialog(gamePanel, "Game Over \nThe winner is " + winner);
+        if (winner != null) {
+            JOptionPane.showMessageDialog(gamePanel, "Game Over \nThe winner is " + winner);
+        } else  {
+            JOptionPane.showMessageDialog(gamePanel, "Game Over \nResult is a DRAW");
+        }
         gamePanel.gameOver();
     }
 
