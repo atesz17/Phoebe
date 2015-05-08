@@ -32,8 +32,8 @@ public class GameActionPanel extends JPanel {
         super.paintComponent(g);
         drawMap(g);
         drawStartLine(g);
-        drawRobots(g);
         drawTraps(g);
+        drawRobots(g);
     }
 
     /**
