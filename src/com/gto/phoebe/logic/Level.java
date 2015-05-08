@@ -52,6 +52,9 @@ public class Level implements Runnable{
             if(robot.isDead){
                 robotIterator.remove();
                 playersAlive--;
+                // Ket jatekosnal ha az egyik kilepett, akkor vege van rogton
+                remainingTurns = 0;
+                break;
             }
             //TODO ha pl robot lep kisrobotra, nem kerul ki a listabol meg
         }
