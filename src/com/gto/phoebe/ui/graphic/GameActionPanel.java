@@ -10,14 +10,24 @@ import java.awt.geom.Line2D;
 
 public class GameActionPanel extends JPanel {
 
+    // játékpanel
     private GamePanel gamePanel;
+    // pálya
     private Level level;
 
+    /**
+     * Konstruktor, ami a megadott játékpanelt állítja be játékpanelnek, és a panelhez tartozó pályát pályának.
+     * @param gamePanel megadott játékpanel
+     */
     public GameActionPanel(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
         this.level = gamePanel.getLevel();
     }
 
+    /**
+     * Megrajzolja a komponenseket a megadott grafikai objektum segítségével.
+     * @param g megadott grafikai objektum
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         drawMap(g);
@@ -26,6 +36,10 @@ public class GameActionPanel extends JPanel {
         drawTraps(g);
     }
 
+    /**
+     * Megrajzolja a csapdákat a pályára, úgy hogy végigiterál rajtuk.
+     * @param g
+     */
     private void drawTraps(Graphics g) {
         for(Trap trap : level.getTraps()){
             g.setColor(trap.getColor());
@@ -33,6 +47,10 @@ public class GameActionPanel extends JPanel {
         }
     }
 
+    /**
+     * Megrajzolja a robotokat a pályára, úgy hogy végigiterál rajtuk.
+     * @param g
+     */
     private void drawRobots(Graphics g) {
         for(Robot robot : level.getRobots()){
             g.setColor(robot.getColor());
@@ -40,6 +58,10 @@ public class GameActionPanel extends JPanel {
         }
     }
 
+    /**
+     * Megrajzolja a pálya pontjait a pályára, úgy hogy végigiterál rajtuk.
+     * @param g
+     */
     private void drawMap(Graphics g) {
         g.setColor(Color.GREEN);
         for(Point point : level.getGameMap().getMap()){
@@ -47,12 +69,21 @@ public class GameActionPanel extends JPanel {
         }
     }
 
+    /**
+     * Megrajzolja a kezdővonalat a pályárak.
+     * @param g
+     */
     private void drawStartLine(Graphics g) {
         g.setColor(Color.RED);
         Line2D startLine = level.getGameMap().getStartLine();
         g.drawLine((int) startLine.getP1().getX(), (int) startLine.getP1().getY(), (int) startLine.getP2().getX(), (int) startLine.getP2().getY());
     }
 
+    /**
+     * Megrajzolja a játék használatához szükséges nyilat, ezzel tudunk lépni a robottal.
+     * @param mousePosition egér pozíciója
+     * @param robotPosition robot pozíciója
+     */
     public void drawArrow(Point mousePosition, Point robotPosition) {
         repaint();
         Graphics g = getGraphics();
