@@ -77,12 +77,19 @@ public class MenuPanel extends JPanel implements ActionListener {
         numberOfTurnsPanel.add(numberOfTurnsLabel);
         numberOfTurnsPanel.add(numberOfTurnsTextArea);
 
+
         playersPanel = new JPanel(new FlowLayout());
+        /*
+        Kivettem ezt a reszt, mert a specifikacioban 2 jatekost irtunk
+        Ez azert jo, mert a Game Overnel is at van irva a logika, es nem fordulhat elo
+        Hogy ha mindketto robot egyszerre lep ki a palyarol, akkor egy cleanerrobot nyer
+
         playersLabel = new JLabel("Set players");
         addPlayerButton = new JButton("Add new player");
         addPlayerButton.addActionListener(this);
         playersPanel.add(playersLabel);
         playersPanel.add(addPlayerButton);
+        */
 
         startButton = new JButton("Start Game");
         startButton.addActionListener(this);
@@ -98,7 +105,7 @@ public class MenuPanel extends JPanel implements ActionListener {
             int playerNum = playersList.size();
             for(int i = 0; i < playerNum; i++) {
                 JPanel playerPanel = new JPanel(new FlowLayout());
-                playerPanel.add(new JLabel("Player" + i + 1));
+                playerPanel.add(new JLabel("Player" + (i + 1)));
                 playerPanel.add(playersList.get(i));
                 add(playerPanel);
             }
