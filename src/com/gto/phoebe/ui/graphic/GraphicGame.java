@@ -59,7 +59,7 @@ public class GraphicGame {
             frame.remove(menuPanel);
             frame.setContentPane(gamePanel);
             frame.pack();
-            frame.revalidate();
+            gamePanel.revalidate();
             frame.setSize(level.getGameMap().getWidth() + GamePanel.PLAYER_STATUS_PANEL_WIDTH, level.getGameMap().getHeight());
 
             Thread t1 = new Thread(level);
@@ -76,7 +76,7 @@ public class GraphicGame {
         frame.remove(gamePanel);
         frame.setContentPane(menuPanel);
         frame.setSize(600, 600);
-        frame.revalidate();
+        menuPanel.revalidate();
     }
 
     /**
