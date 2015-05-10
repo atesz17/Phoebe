@@ -204,7 +204,6 @@ public class Level implements Runnable{
      * @return Robot A győztes robot
      */
     public Robot getWinner() {
-        Robot winner = robots.get(0);
         // Ketto jatekosnal nem kell ciklus
         /*
         for (Robot robot : robots) {
@@ -213,14 +212,21 @@ public class Level implements Runnable{
             }
         }
         */
-        if (winner.getTotalDistanceTraveled() < robots.get(1).getTotalDistanceTraveled()) {
-            winner = robots.get(1);
+        if(robots.isEmpty()){
+            return new TrapperRobot(new Point(0, 0), null, null, null);
+        } if (robots.size() == 1) {
+            return robots.get(0);
+        } else {
+            Robot winner = robots.get(0);
+            if (winner.getTotalDistanceTraveled() < robots.get(1).getTotalDistanceTraveled()) {
+                winner = robots.get(1);
+            }
+            // Hibatures double osszehasonlitasnal
+            if (Math.abs(robots.get(0).getTotalDistanceTraveled() - robots.get(1).getTotalDistanceTraveled()) <= 1)   {
+                winner = new TrapperRobot(new Point(0, 0), null, null, null);
+            }
+            return winner;
         }
-        // Hibatures double osszehasonlitasnal
-        if (Math.abs(robots.get(0).getTotalDistanceTraveled() - robots.get(1).getTotalDistanceTraveled()) <= 1)   {
-            winner = new TrapperRobot(new Point(0, 0), null, null, null);
-        }
-        return winner;
     }
 
     /**
