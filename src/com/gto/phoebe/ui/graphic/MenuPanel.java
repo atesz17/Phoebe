@@ -17,25 +17,44 @@ import java.util.List;
 
 public class MenuPanel extends JPanel implements ActionListener {
 
+    // maga a játék
     private GraphicGame graphicGame;
 
+    // pálya kiválasztásához szükséges panel
     private JPanel loadMapPanel;
+    // pálya kiválasztásához szükséges címke
     private JLabel loadMapLabel;
+    // pálya kiválasztásához szükséges gomb
     private JButton loadMapButton;
+    // pálya ebbe a fájlba kerül
     private File loadedMap;
+    // pálya kiválasztásáért felelős fájlkiválasztó
     private JFileChooser loadMapFileChooser;
 
+    // körök kiválasztásához szükséges panel
     private JPanel numberOfTurnsPanel;
+    // körök kiválasztásához szükséges címke
     private JLabel numberOfTurnsLabel;
+    // körök kiválasztásához szükséges szövegdoboz
     private JTextField numberOfTurnsTextArea;
 
+    // játékosok kiválasztásához szükséges panel
     private JPanel playersPanel;
+    // játékosok kiválasztásához szükséges címke
     private JLabel playersLabel;
+    // játékosok nevei ebbe a listába kerülnek
     private List<JTextField> playersList = new ArrayList<JTextField>();
+    // új játékos felvételéhez szükséges gomb
     private JButton addPlayerButton;
 
+    // játék kezdéséért felelős gomb
     private JButton startButton;
 
+    public MenuPanel(GraphicGame graphicGame) {
+    /**
+     * Konstruktor, létrehozza a graphicGame segítségével a menüpanelt.
+     * @param graphicGame maga a játék
+     */
     public MenuPanel(GraphicGame graphicGame) {
         this.graphicGame = graphicGame;
 
@@ -54,11 +73,17 @@ public class MenuPanel extends JPanel implements ActionListener {
         numberOfTurnsPanel.add(numberOfTurnsTextArea);
 
         playersPanel = new JPanel(new FlowLayout());
+        /*
+        Kivettem ezt a reszt, mert a specifikacioban 2 jatekost irtunk
+        Ez azert jo, mert a Game Overnel is at van irva a logika, es nem fordulhat elo
+        Hogy ha mindketto robot egyszerre lep ki a palyarol, akkor egy cleanerrobot nyer
+
         playersLabel = new JLabel("Set players");
         addPlayerButton = new JButton("Add new player");
         addPlayerButton.addActionListener(this);
         playersPanel.add(playersLabel);
         playersPanel.add(addPlayerButton);
+        */
 
         startButton = new JButton("Start Game");
         startButton.addActionListener(this);
@@ -74,7 +99,7 @@ public class MenuPanel extends JPanel implements ActionListener {
             int playerNum = playersList.size();
             for(int i = 0; i < playerNum; i++) {
                 JPanel playerPanel = new JPanel(new FlowLayout());
-                playerPanel.add(new JLabel("Player" + i + 1));
+                playerPanel.add(new JLabel("Player" + (i + 1)));
                 playerPanel.add(playersList.get(i));
                 add(playerPanel);
             }
@@ -83,6 +108,10 @@ public class MenuPanel extends JPanel implements ActionListener {
         add(startButton);
     }
 
+    /**
+     * A különböző események kezelése itt történik(pl. a gombok megnyomása).
+     * @param actionEvent esemény
+     */
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         if (actionEvent.getSource() == loadMapButton){
@@ -121,6 +150,10 @@ public class MenuPanel extends JPanel implements ActionListener {
         }
     }
 
+    /**
+     * Visszaadja a játékosok neveinek listáját és szövegdobozba teszi.
+     * @return
+     */
     private List<String> getPlayerNames() {
         List<String> ret = new ArrayList<String>();
         for(JTextField jTextField : playersList){
@@ -129,6 +162,9 @@ public class MenuPanel extends JPanel implements ActionListener {
         return ret;
     }
 
+    /**
+     * A különböző kezdeti feltételek megadása(pl. hogy a felhasználó a megfelelő értékeket írja be a szövegdobozokba).
+     */
     private void validateStartParameters() throws PhoebeException {
         ErrorList errorList = new ErrorList();
         int numberOfTurns = 0;

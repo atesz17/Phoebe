@@ -8,20 +8,37 @@ import java.awt.*;
 
 public class TrapperRobot extends Robot {
 
+    // robot mérete, ez adott
     private static int SIZE = 20;
+    // robot színe, ez adott
     private static Color COLOR = Color.DARK_GRAY;
 
+    // csapda tároló
     protected TrapInventory trapInventory = new TrapInventory();
 
+    /**
+     * Konstruktor a TrapperRobotnak, a Robot konstruktora hívódik meg.
+     * @param position
+     * @param name
+     * @param level
+     * @param userInterface
+     */
     public TrapperRobot(Point position, String name, Level level, UserInterface userInterface) {
         super(position, SIZE, COLOR, name, level, userInterface);
     }
 
+    /**
+     * Robot mozgatásához szükséges.
+     */
     public void jump() {
         Movement input = userInterface.getMovementInput(this);
         jump(input);
     }
 
+    /**
+     * Robot mozgatása itt történik, egyik pontról a másikra ugrik a robot a megadott paraméterrel.
+     * @param movement irány és sebesség
+     */
     private void jump(Movement movement) {
         Point newPosition = calculatePosition(movement);
         speed += movement.speedChange;
@@ -32,6 +49,11 @@ public class TrapperRobot extends Robot {
         speedChangeEnabled = true;
     }
 
+    /**
+     * Kiszámolja a robot új sebességét és irányát, tehát az új pozíciót.
+     * @param movement
+     * @return
+     */
     private Point calculatePosition(Movement movement) {
         int newSpeed = speed + movement.speedChange;
         double newAngleInRad = getAngleInRad() + movement.angleChangeInRad;
@@ -58,6 +80,9 @@ public class TrapperRobot extends Robot {
     }
 
 
+    /**
+     * Csapda lerakása: olaj, ragacs, vagy semmi.
+     */
     public void plantTrap() {
         TrapTypes trap = userInterface.getTrapInput(this);
         switch (trap) {
@@ -99,18 +124,33 @@ public class TrapperRobot extends Robot {
         robot.steppedOnBy(this);
     }
 
+    /**
+     * Visszaadja az olaj pozícióját, ahová le akarjuk tenni.
+     * @return
+     */
     public Oil dropOil() {
         return trapInventory.getOil(position);
     }
 
+    /**
+     * Visszaadja a ragacs pozícióját, ahová le akarjuk tenni.
+     * @return
+     */
     public Glue dropGlue() {
         return trapInventory.getGlue(position);
     }
 
+    /**
+     * Újratölti a csapdakészletet.
+     */
     public void reloadTraps() {
         trapInventory.reloadTraps();
     }
 
+    /**
+     * Különböző információkat kérdez le a játékkal kapcsolatban.
+     * @return
+     */
     public String getStatus() {
         String ret = "";
         ret += "Játékos: " + name + " \n";
