@@ -50,7 +50,6 @@ public class MenuPanel extends JPanel implements ActionListener {
     // játék kezdéséért felelős gomb
     private JButton startButton;
 
-    public MenuPanel(GraphicGame graphicGame) {
     /**
      * Konstruktor, létrehozza a graphicGame segítségével a menüpanelt.
      * @param graphicGame maga a játék
