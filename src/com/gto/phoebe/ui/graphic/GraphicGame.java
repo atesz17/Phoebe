@@ -5,7 +5,6 @@ import com.gto.phoebe.util.PhoebeException;
 
 import javax.swing.*;
 import java.io.InputStream;
-import java.net.URISyntaxException;
 import java.util.List;
 
 public class GraphicGame {
@@ -18,12 +17,7 @@ public class GraphicGame {
 
 
     public GraphicGame() {
-        try {
-            menuPanel = new MenuPanel(this);
-        } catch (URISyntaxException e) {
-            //TODO teszt utan kivenni
-            e.printStackTrace();
-        }
+        menuPanel = new MenuPanel(this);
         graphicInterface = new GraphicInterface();
         frame = new JFrame("Phoebe");
         frame.setContentPane(menuPanel);
